@@ -1,0 +1,50 @@
+**.orig
+*.gz
+*.rbc
+*.sql
+*.swp
+.capistrano
+.rspec
+/config/
+/config/deploy.rb
+/config/deploy/
+/coverage/
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log
+/logos
+/public/uploads/client/
+/public/uploads/logo/
+/public/uploads/tmp/
+/sampleimages
+/spec/tmp
+/tmp
+Capfile
+capybara-*.html
+.DS_Store
+pickle-email-*.html
+
+# TODO Comment out these rules if you are OK with secrets being uploaded to the repo
+#config/initializers/secret_token.rb
+#config/secrets.yml
+#config/database.yml
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
+
+# Ignore pow environment settings
+.powenv
+
+
