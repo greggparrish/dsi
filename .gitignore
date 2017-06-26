@@ -1,9 +1,11 @@
 **.orig
 *.gz
+*.env
 *.rbc
 *.sql
 *.swp
 .capistrano
+.env
 .rspec
 /config/
 /config/deploy.rb
