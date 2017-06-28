@@ -18,6 +18,27 @@ nav.pagination {
     padding: 0 10px;
   }
 }
-/* rm light blue border around active buttons & inputs 
- */textarea:focus, input:focus, button:focus{  outline: none;}
+/* rm light blue border around active buttons & inputs */
+textarea:focus, input:focus, button:focus{  outline: none;}
 
+#dsi-redbox {
+  background-color: $dsi_red_trans;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
+  color: $white;
+  .dmusic {
+    text-transform: uppercase;
+    font: 700 3em $dsi_logo;
+    letter-spacing: 3px;
+    border-top: 3px solid $white;
+    border-bottom: 3px solid $white;
+    display: inline-block;
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+  .us {
+    text-transform: uppercase;
+  }
+}

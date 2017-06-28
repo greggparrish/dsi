@@ -1,11 +1,8 @@
-.navbar-toggler {
-  border: 0;
-}
 .navbar {
   background: $dsi_grey_trans;
   position: absolute;
   width: 100%;
-  padding: 20px 0;
+  padding: 15px 0;
   z-index: 999;
   .navbar-brand {
     border-bottom: solid 1px $dsi_baby_blue;    
@@ -20,5 +17,12 @@
     padding: 2px 0 1px 0;
     text-align: center;
     text-transform: uppercase;
+  }
+  .navbar-toggler {
+    margin-top: -7px;
+    border: 0;
+  }
+  .navbar-collapse {
+    margin-top: 3px;
   }
 }

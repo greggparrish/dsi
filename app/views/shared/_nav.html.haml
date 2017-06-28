@@ -1,4 +1,4 @@
-%nav.navbar.navbar-light.bg-faded.navbar-toggleable-md
+%nav.navbar.navbar-inverse.navbar-toggleable-md
   .container
     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "containerNavbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#containerNavbar", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
@@ -9,6 +9,5 @@
         = nav_link "MAP", root_path
         = nav_link "HISTORY", root_path
         = nav_link "MUSICOLOGICAL GUIDE", genres_path
-        = nav_link "STORIES", root_path
-        = nav_link "EVENTS", root_path
+        = nav_link "STORIES", stories_path
         = nav_link "SEARCH", root_path

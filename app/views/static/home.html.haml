@@ -1,18 +1,6 @@
-%header.masthead
+%header.masthead(style="background-image: url(#{image_url('nyc.jpg')})")
   .container
-    .intro-text
-      .intro-lead-in INTRO TEXT
-      .intro-heading LARGE HEADING
-      %a.btn.btn-xl{:href => "#"} BUTTON TEXT
-.dsi-panel.full-img(style="background-image: url(#{image_url('nyc.jpg')})")
-  .container.home-header
-    .dsi-redbox
-      .history
-        a history of
-      .dmusic
-        dominican music
-      .us
-        in the united states
+    =render '/shared/redbox'
 .dsi-panel.bb
   .container
     %section#overview
@@ -37,13 +25,13 @@
       .row
         .col-12.col-sm-6.col-md-3
           %h1.bb stories
-          %p lorem ipsum
+          %p description of stories
         .col-12.col-sm-6.col-md-3
-          %p lorem ipsum
+          %p story 1
         .col-12.col-sm-6.col-md-3
-          %p lorem ipsum
+          %p story 2
         .col-12.col-sm-6.col-md-3
-          %p lorem ipsum
+          %p story 3
 .dsi-panel.full-img(style="background-image: url(#{image_url('map.jpg')})")
   %section#map
     .container
@@ -59,7 +47,7 @@
 .dsi-panel.half-blue
   .container
     %section#timeline
-      %h1.orange historic timelines
+      %h1.orange timelines
       %p
         lorem ipsum
 .dsi-panel.bb

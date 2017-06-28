@@ -1,17 +1,18 @@
 .dsi-panel {
-	padding: 70px 0;
+  padding: 50px 0;
   color: $white;
 	&.full-img {
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 	}
-	&.white {
+	&.white, &.half-blue {
 		background-color: $white;
     color: $dsi_grey;
 	}
 	&.bb {
 		background-color: $dsi_baby_blue;
+    color: $white;
 	}
 	&.bg {
 		background-color: $dsi_blue_green;
