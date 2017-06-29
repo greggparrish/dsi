@@ -13,6 +13,8 @@ nav.pagination {
   border-bottom: 1px solid $lighter_grey;
   width: 100%;
   padding: 20px 0;
+  display: block;
+  border-radius: 0;
   text-align: center;
   span {
     padding: 0 10px;

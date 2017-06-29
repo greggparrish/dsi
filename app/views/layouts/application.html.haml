@@ -15,7 +15,8 @@
 
   %body
     = render 'shared/nav'
-    = render 'shared/header'
+    -unless current_page?(root_path)
+      = render 'shared/header'
     %div{class:"main-container #{controller_name} #{controller.action_name}"}
       = yield
     = render 'shared/footer'

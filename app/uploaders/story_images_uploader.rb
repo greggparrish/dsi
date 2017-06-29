@@ -1,4 +1,4 @@
-class UserImagesUploader < CarrierWave::Uploader::Base
+class StoryImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :file
 
