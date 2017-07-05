@@ -15,9 +15,7 @@
 /db/*.sqlite3-journal
 /log
 /logos
-/public/uploads/story/
-/public/uploads/logo/
-/public/uploads/tmp/
+/public/uploads/
 /sampleimages
 /spec/tmp
 /tmp

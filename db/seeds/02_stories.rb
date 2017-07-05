@@ -10,5 +10,3 @@ if Story.count < 30 and Rails.env == 'development'
     ]
   end
 end
-
-

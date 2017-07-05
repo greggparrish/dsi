@@ -1,0 +1,28 @@
+.container
+  %p MUSICOLOGICAL GUIDE
+  -if user_signed_in?
+    -if current_user.try(:admin?)
+      %p
+        = link_to 'New Genre', new_story_path
+  .row
+    - @genres.each do |genre|
+      .col-12
+        .row
+          .col-12.col-md-9
+            %ul.list-unstyled
+              %li= genre.title
+              %li= genre.description
+            %ul.list-inline.genre-nav
+              %li= link_to "View on Youtube", genre.audio
+              %li= link_to "View Images", root_path
+              %li= link_to "Listen to Sample Audio", root_path
+          .col-12.col-md-3
+            =link_to (image_tag genre.image.thumb), genre_path(genre)
+      -if user_signed_in?
+        -if current_user.try(:admin?)
+          %p.admin-controls
+            = link_to 'Show', genre
+            |
+            = link_to 'Edit', edit_genre_path(genre)
+            |
+            = link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' }
