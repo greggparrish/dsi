@@ -1,0 +1,23 @@
+.container
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error") 
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  .form-wrapper#user-form
+    = simple_form_for @user do |f|
+      .row
+        .col-12.col-sm-6.form-group
+          = f.input :email
+        .col-12.col-sm-6.form-group
+          = f.input :username
+        .col-12.form-group
+        .col-12.form-group
+          = f.select :role, User.roles.map { |r| [r[0], r[1] ]}, {}, {class: 'custom-select'}
+        .col-12.form-group
+          = f.button :submit, class: 'btn-success'
+
+

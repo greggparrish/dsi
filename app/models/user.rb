@@ -26,11 +26,13 @@
 #
 
 class User < ApplicationRecord
+  extend FriendlyId
+  validate :validate_username
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
   attr_accessor :login
   enum role: [:client, :editor, :admin]
   after_initialize :set_default_role, if: :new_record?
-  validate :validate_username
+  friendly_id :username, use: :slugged
 
 	def validate_username
 		if User.where(email: username).exists?

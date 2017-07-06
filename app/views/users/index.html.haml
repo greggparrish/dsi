@@ -1,0 +1,18 @@
+.container
+  -if user_signed_in? && current_user.admin?
+    %table.table.table-hover#user-table
+      %th email
+      %th username
+      %th role
+      %th
+      %th
+      -@users.each do |u|
+        %tr{ class: u.role == 'admin'? 'admin' : '' }
+          %td= u.email
+          %td= u.username
+          %td= u.role
+          %td
+            = link_to "edit", edit_user_path(u.id)
+          %td
+            = link_to 'delete', user_path(u), method: :delete, data: { confirm: 'Are you sure?' } 
+

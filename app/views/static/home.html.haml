@@ -26,12 +26,9 @@
         .col-12.col-sm-6.col-md-3
           %h1.bb stories
           %p description of stories
-        .col-12.col-sm-6.col-md-3
-          %p story 1
-        .col-12.col-sm-6.col-md-3
-          %p story 2
-        .col-12.col-sm-6.col-md-3
-          %p story 3
+        -@stories.each do |s|
+          .col-12.col-sm-6.col-md-3
+            =link_to image_tag(s.image.thumb), story_path(s) 
 .dsi-panel.full-img(style="background-image: url(#{image_url('map.jpg')})")
   %section#map
     .container

@@ -7,12 +7,16 @@ class StoryPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin?
+      if @user.present? && @user.admin?
         scope.all
       else
         scope.where(published: true)
       end
     end
+  end
+
+  def home?
+    true
   end
 
   def index?
@@ -24,15 +28,15 @@ class StoryPolicy < ApplicationPolicy
   end
 
   def create?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
   def update?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
   def destroy?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
 end

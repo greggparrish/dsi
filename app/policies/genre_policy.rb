@@ -20,15 +20,15 @@ class GenrePolicy < ApplicationPolicy
   end
 
   def create?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
   def update?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
   def destroy?
-    @user.admin?
+    @user.present? && @user.admin?
   end
 
 end
