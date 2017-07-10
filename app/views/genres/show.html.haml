@@ -1,6 +1,10 @@
-%p#notice= notice
+.container
+  -if user_signed_in? && current_user.admin?
+    = link_to 'Edit', edit_genre_path(@genre)
+  %ul.list-unstyled#genre
+    %li= image_tag @genre.image
+    %li= @genre.title
+    %li= link_to 'youtube', @genre.audio
+    %li.text= @genre.description
+   
 
-
-= link_to 'Edit', edit_genre_path(@genre)
-\|
-= link_to 'Back', genres_path

@@ -16,7 +16,7 @@
           = f.input :username
         .col-12.form-group
         .col-12.form-group
-          = f.select :role, User.roles.map { |r| [r[0], r[1] ]}, {}, {class: 'custom-select'}
+          = f.input :role, :collection => User::roles.map {|k,v| [k,k]}
         .col-12.form-group
           = f.button :submit, class: 'btn-success'
 

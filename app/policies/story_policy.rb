@@ -7,7 +7,7 @@ class StoryPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if @user.present? && @user.admin?
+      if @user.present? && @user.is_admin?
         scope.all
       else
         scope.where(published: true)
