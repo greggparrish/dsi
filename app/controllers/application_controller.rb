@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    root_path
+    admin_dashboard_path
+  end
+
+  def authenticate_admin!
+    authenticate_user!
+    redirect_to new_user_session_path unless current_user.is_admin?
   end
 
   protected
