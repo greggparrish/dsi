@@ -1,0 +1,6 @@
+%ul.list-inline#admin-nav
+  -model = controller.controller_name
+  %li.list-inline-item ADMIN:  
+  %li.list-inline-item= link_to fa_icon('list'), send("admin_#{model}_path")
+  %li.list-inline-item= link_to fa_icon('plus-circle'), send("new_admin_#{model.singularize}_path")
+  %li.list-inline-item= fa_icon 'cog' 

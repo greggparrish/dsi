@@ -5,15 +5,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem "font-awesome-rails"
 gem 'friendly_id'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'kaminari'
 gem 'listen', '~> 3.0.5'
 gem 'mini_magick'
 gem 'pg', '~> 0.18'

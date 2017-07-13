@@ -1,7 +1,7 @@
 .container
   %p MUSICOLOGICAL GUIDE
   -if user_signed_in? && current_user.try(:admin?)
-    %p= link_to 'New Genre', new_genre_path
+    =render '/shared/admin_nav'
   .row
     - @genres.each do |genre|
       .col-12
@@ -11,14 +11,7 @@
           %ul.list-unstyled
             %li
               %h2= genre.title
-              -if user_signed_in? && current_user.try(:admin?)
-                %p.admin-controls
-                  = link_to 'Show', genre
-                  |
-                  = link_to 'Edit', edit_genre_path(genre)
-                  |
-                  = link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' }
-            %li= genre.description
+            %li= genre.description.html_safe
           %ul.list-inline#genre-nav
             %li.list-inline-item= link_to "View on Youtube", genre.audio
             %li.list-inline-item= link_to "View Images", root_path

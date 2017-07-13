@@ -7,10 +7,17 @@
 #  description :text
 #  id          :integer          not null, primary key
 #  image       :string
+#  slug        :string
 #  title       :string
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_genres_on_slug  (slug) UNIQUE
+#
 
 class Genre < ApplicationRecord
+  extend FriendlyId
   mount_uploader :image, GenreImagesUploader
+  friendly_id :title, use: :slugged
 end

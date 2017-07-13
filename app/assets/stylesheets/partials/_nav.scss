@@ -22,4 +22,24 @@
     margin-top: -7px;
     border: 0;
   }
+  a, i {
+    color: $white;
+  }
+  #admin-nav {
+    .dropdown-toggle {
+      i {
+      color: $dsi_red;
+    }
+      &:after {
+        display: none;
+      }
+    }
+    .dropdown-menu {
+      background: $dsi_grey_trans;
+      border: 0;
+      a:hover {
+        background: transparent;
+      }
+    }
+  }
 }

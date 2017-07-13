@@ -1,5 +1,17 @@
-#user-table {
-  tr.admin > td {
-    color: $dsi_red;
+#admin {
+  margin-top: 30px;
+  h1.admin { color: $dsi_red;  }
+  .table-filter { text-align: right;  }
+  table {
+    tr.admin > td {
+      color: $dsi_red;
+    }
+    i {
+      font-size: 1.2em;
+      &.published {color: $green}
+      &.unpublished {color: $dsi_red}
+    }
   }
 }
+
+

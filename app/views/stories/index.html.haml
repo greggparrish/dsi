@@ -1,7 +1,7 @@
 .container
   %p THE FACES OF DOMINICAN MUSIC
   -if user_signed_in? && current_user.try(:admin?)
-    %p= link_to 'New Story', new_story_path
+    =render '/shared/admin_nav'
   .row
     - @stories.each do |story|
       .col-12.col-sm-6.col-md-3
@@ -12,12 +12,4 @@
             %li= story.name
             %li= story.place
             %li= truncate(story.story_text, length: 100)
-        -if user_signed_in?
-          -if current_user.try(:admin?)
-            %p.admin-controls
-              = link_to 'Show', story
-              |
-              = link_to 'Edit', edit_story_path(story)
-              |
-              = link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }
   = paginate @stories

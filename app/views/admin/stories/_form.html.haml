@@ -1,0 +1,31 @@
+.container
+  - if @story.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@story.errors.count, "error") 
+        prohibited this story from being saved:
+      %ul
+        - @story.errors.full_messages.each do |message|
+          %li= message
+  .form-wrapper#story-form
+    = simple_form_for [:admin, @story] do |f|
+      .row
+        .col-12.col-sm-6.form-group
+          = f.input :name
+        .col-12.col-sm-6.form-group
+          = f.input :email
+        .col-12.form-group
+          = f.input :place
+        .col-12.form-group
+          = f.input :story_text
+        .col-12.form-group
+          %p Image (Optional)
+          = f.input :image, label: false
+        .col-12.form-group
+          = f.input :published
+        .col-12.col-sm-6.form-group
+          = f.button :submit, class: 'btn-success'
+        -unless @story.new_record?  
+          .col-12.col-sm-6.form-group
+            = link_to 'Delete', admin_story_path(@story), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger' 
+

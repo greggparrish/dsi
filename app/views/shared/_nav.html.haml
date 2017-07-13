@@ -7,13 +7,7 @@
       %ul.navbar-nav.mr-auto
         = nav_link "ABOUT", root_path
         = nav_link "MAP", root_path
-        = nav_link "HISTORY", root_path
+        = nav_link "TIMELINE", root_path
         = nav_link "MUSICOLOGICAL GUIDE", genres_path
         = nav_link "STORIES", stories_path
-        = nav_link "SEARCH", root_path
-        -if user_signed_in?
-          %li.dropdown-divider
-          = nav_link "ADMIN PANEL", admin_dashboard_path
-          = nav_link "ACCOUNT", edit_user_registration_path
-          %li= link_to "SIGN OUT", destroy_session_path(:user), method: :delete, class: 'nav-link'
-
+        = link_to fa_icon("search"), root_path, class: 'nav-link'
