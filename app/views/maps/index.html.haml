@@ -1,0 +1,7 @@
+.container
+  %p MAP
+  -if user_signed_in? && current_user.try(:admin?)
+    =render '/shared/admin_nav'
+  .row
+  -@maps.each do |m|
+    %p=m.title

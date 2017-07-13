@@ -137,6 +137,7 @@ GEM
       i18n
     friendly_id (5.2.1)
       activerecord (>= 4.0.0)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     guard (2.14.1)
@@ -409,6 +410,7 @@ DEPENDENCIES
   font-awesome-rails
   formulaic
   friendly_id
+  geocoder
   guard
   guard-livereload (~> 2.5)
   guard-minitest (= 2.3.1)

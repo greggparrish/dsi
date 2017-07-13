@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'friendly_id'
+gem 'geocoder'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

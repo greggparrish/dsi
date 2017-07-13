@@ -1,6 +1,6 @@
 .container
-  -if user_signed_in? && current_user.admin?
-    = link_to 'Edit', edit_admin_story_path(@story)
+  -if user_signed_in? && current_user.try(:admin?)
+    =render '/shared/admin_nav'
   %ul.list-unstyled#story
     %li= image_tag @story.image
     %li= @story.name

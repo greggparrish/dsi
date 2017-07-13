@@ -1,0 +1,19 @@
+- if @history.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@history.errors.count, "error") 
+      prohibited this history from being saved:
+    %ul
+      - @history.errors.full_messages.each do |message|
+        %li= message
+.form-wrapper#history-form
+  = simple_form_for @history do |f|
+    .row
+      .col-12.form-group
+        = f.input :title
+      .col-12.col-sm-6.form-group
+        = f.button :submit, class: 'btn-success'
+      -unless @history.new_record?  
+        .col-12.col-sm-6.form-group
+          = link_to 'Delete', admin_history_path(@history), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger' 
+

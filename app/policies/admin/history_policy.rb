@@ -1,17 +1,13 @@
-class Admin::StoryPolicy < ApplicationPolicy
-  attr_reader :user, :story
-  def initialize(user, story)
+class Admin::HistoryPolicy < ApplicationPolicy
+  attr_reader :user, :history
+  def initialize(user, history)
     @user = user
-    @story = story
+    @history = history
   end 
 
   class Scope < Scope
     def resolve
-      if @user.present? && @user.is_admin?
-        scope.all
-      else
-        scope.where(published: true)
-      end
+      scope.all
     end
   end
 

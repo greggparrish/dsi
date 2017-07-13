@@ -5,9 +5,9 @@
     =link_to "DOMINICAN MUSIC", root_path, class: 'navbar-brand'
     #containerNavbar.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
-        = nav_link "ABOUT", root_path
-        = nav_link "MAP", root_path
-        = nav_link "TIMELINE", root_path
+        = nav_link "ABOUT", about_path
+        = nav_link "MAP", map_path
+        = nav_link "TIMELINE", timeline_path
         = nav_link "MUSICOLOGICAL GUIDE", genres_path
         = nav_link "STORIES", stories_path
         = link_to fa_icon("search"), root_path, class: 'nav-link'

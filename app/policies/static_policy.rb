@@ -8,6 +8,10 @@ class StaticPolicy < Struct.new(:user, :static)
     true
   end
 
+  def about?
+    true
+  end
+
 end
 
 
