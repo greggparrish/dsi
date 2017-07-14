@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713182124) do
+ActiveRecord::Schema.define(version: 20170714113411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,16 +37,6 @@ ActiveRecord::Schema.define(version: 20170713182124) do
     t.text    "tags",                                                                         comment: "Space-separated list of cache tags for this entry."
     t.string  "checksum",   limit: 255,                                          null: false, comment: "The tag invalidation checksum when this entry was saved."
     t.index ["expire"], name: "cache_container__expire__idx", using: :btree
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.date     "date"
-    t.string   "title"
-    t.string   "image"
-    t.text     "description"
-    t.string   "embed"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -84,6 +74,18 @@ ActiveRecord::Schema.define(version: 20170713182124) do
     t.float    "latitude"
     t.float    "longitude"
     t.index ["slug"], name: "index_histories_on_slug", unique: true, using: :btree
+  end
+
+  create_table "news_items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "place"
+    t.date     "date"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.index ["slug"], name: "index_news_items_on_slug", unique: true, using: :btree
   end
 
   create_table "stories", force: :cascade do |t|

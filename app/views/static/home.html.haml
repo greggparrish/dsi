@@ -5,27 +5,27 @@
   .container
     %section#overview
       %h1 a history of dominican music in the u.s.
-      intro text
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
       .row
         .col-12.col-sm-6.col-md-3
-          %h2 header
-          lorem ipsum
+          %h2 your stories
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 header
-          lorem ipsum
+          %h2 interactive map
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 header
-          lorem ipsum
+          %h2 timelines
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 header
-          lorem ipsum
+          %h2 genre guide
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
 .dsi-panel.white
   .container
     %section#stories
       .row
         .col-12.col-sm-6.col-md-3
           %h1.bb stories
-          %p description of stories
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus. Fusce nunc ipsum, egestas quis turpis vitae.
         -@stories.each do |s|
           .col-12.col-sm-6.col-md-3
             =link_to image_tag(s.image.thumb), story_path(s) 
@@ -35,41 +35,34 @@
       .row
         .col-12.col-sm-6.col-md-3
           %h1.bb interactive map
-          %p
-            lorem ipsum
-            lorem ipsum
-            lorem ipsum
-            lorem ipsum
-            lorem ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 .dsi-panel.half-blue
   .container
     %section#timeline
       %h1.orange timelines
-      %p
-        lorem ipsum
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 .dsi-panel.bb
   %section#images
     .container
       .row
         .col-12.col-sm-6
-          %h1 featured images from the archive
           %p
-            lorem ipsum
         .col-12.col-sm-6
           %h1 featured images from the archive
-          %p
-            lorem ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 .dsi-panel.full-img(style="background-image: url(#{image_url('nyc_blur.jpg')})")
   %section#news
     .container
-      .row
-        .col-12.col-sm-6
-          %h1 news & events
-          %p
-            lorem ipsum
-        .col-12.col-sm-6
-          %h1 news & events
-          %p
-            lorem ipsum
-
-
+      %h1 News and events
+      #carouselNews.carousel.slide{"data-ride" => "carousel", "data-interval" => '5000'}
+        .carousel-inner{:role => "listbox"}
+          -@news.each_with_index do |n,i|
+          -slideclasses = i == 0 ? 'row carousel-item active' : 'row carousel-item'
+            %div{ class: "#{ slideclasses }" }
+              .col-12.col-sm-6
+                %ul.list-unstyled#news-slides
+                  %li= n.title
+                  %li= n.date
+                  %li= n.place
+              .col-12.col-sm-6
+                = truncate(n.description, escape: false, length: 150)

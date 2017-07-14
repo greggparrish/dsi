@@ -1,23 +1,28 @@
 # == Schema Information
 #
-# Table name: events
+# Table name: news_items
 #
 #  created_at  :datetime         not null
 #  date        :date
 #  description :text
-#  embed       :string
 #  id          :integer          not null, primary key
 #  image       :string
+#  place       :string
+#  slug        :string
 #  title       :string
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_news_items_on_slug  (slug) UNIQUE
+#
 
 FactoryGirl.define do
-  factory :event do
-    date "2017-07-05"
+  factory :news_item do
     title "MyString"
-    image "MyString"
+    place "MyString"
+    date "2017-07-14"
     description "MyText"
-    embed "MyString"
+    slug "MyString"
   end
 end

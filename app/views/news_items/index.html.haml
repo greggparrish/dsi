@@ -1,0 +1,7 @@
+.container
+  %p NEWS
+  -if user_signed_in? && current_user.try(:admin?)
+    =render '/shared/admin_nav'
+  .row
+  -@news.each do |n|
+    %p=n.title

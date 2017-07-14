@@ -1,9 +1,15 @@
 .main-container.home {
+  img {
+    @include centerobj;
+  }
   header {
     padding: 20% 0;
     #dsi-redbox {
       padding-bottom: 15%;
       padding: 15px 5px;
     }
+  }
+  section {
+    min-height:300px;
   }
 }

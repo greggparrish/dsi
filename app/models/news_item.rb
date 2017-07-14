@@ -1,30 +1,32 @@
 # == Schema Information
 #
-# Table name: histories
+# Table name: news_items
 #
 #  created_at  :datetime         not null
 #  date        :date
 #  description :text
 #  id          :integer          not null, primary key
 #  image       :string
-#  latitude    :float
-#  longitude   :float
-#  media       :string
+#  place       :string
 #  slug        :string
 #  title       :string
 #  updated_at  :datetime         not null
 #
 # Indexes
 #
-#  index_histories_on_slug  (slug) UNIQUE
+#  index_news_items_on_slug  (slug) UNIQUE
 #
 
-FactoryGirl.define do
-  factory :history do
-    title "MyString"
-    date "2017-07-13"
-    description "MyText"
-    media "MyString"
-    slug "MyString"
-  end
+class NewsItem < ApplicationRecord
+	extend FriendlyId
+	friendly_id :slug_candidates, use: :slugged
+
+	def slug_candidates
+		[
+			:title,
+			[:title, :id]
+		]
+	end
+
+
 end
