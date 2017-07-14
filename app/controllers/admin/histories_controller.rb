@@ -2,7 +2,7 @@ class Admin::HistoriesController < ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
   def index
-    @histories = History.all 
+    @histories = Kaminari.paginate_array(History.all.order('date DESC')).page(params[:page]).per(20)
   end
 
   def show

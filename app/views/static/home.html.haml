@@ -62,7 +62,7 @@
               .col-12.col-sm-6
                 %ul.list-unstyled#news-slides
                   %li= n.title
-                  %li= n.date
+                  %li= n.date.strftime("%A, %B %-d, %Y")
                   %li= n.place
               .col-12.col-sm-6
                 = truncate(n.description, escape: false, length: 150)

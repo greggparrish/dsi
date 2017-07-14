@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
 
   def index
-    @maps = History.all
+    @maps = History.order("created_at DESC").limit(10)
     authorize @maps
   end
 

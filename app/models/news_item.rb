@@ -19,6 +19,7 @@
 
 class NewsItem < ApplicationRecord
 	extend FriendlyId
+  mount_uploader :image, ImagesUploader
 	friendly_id :slug_candidates, use: :slugged
 
 	def slug_candidates

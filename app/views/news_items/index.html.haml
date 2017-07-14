@@ -2,6 +2,12 @@
   %p NEWS
   -if user_signed_in? && current_user.try(:admin?)
     =render '/shared/admin_nav'
-  .row
   -@news.each do |n|
-    %p=n.title
+    .row
+      .col-12.col-md-3
+        =image_tag(n.image.sq_thumb)
+      .col-12.col-md-9
+        %ul.list-unstyled
+          %li=n.title
+          %li=n.description.html_safe
+  = paginate @news

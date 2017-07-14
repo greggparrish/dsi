@@ -1,8 +1,7 @@
 class NewsItemsController < ApplicationController
 
   def index
-    @news = NewsItem.all
-    authorize @news
+    @news = Kaminari.paginate_array(policy_scope(NewsItem).all.order('date DESC, created_at DESC')).page(params[:page]).per(10)
   end
 
   def show

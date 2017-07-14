@@ -1,9 +1,11 @@
 #admin.container
-  %h1.admin ADMIN: GENRES
   -if user_signed_in? && current_user.admin?
+    .row
+      .col-12
+        =render '/shared/admin_nav'
     %table.table.table-hover#genre-table
       %th title
-      %th
+      %th description
       %th
       -@genres.each do |g|
         %tr

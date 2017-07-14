@@ -2,7 +2,7 @@ class Admin::NewsItemsController < ApplicationController
   before_action :set_ni, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news = NewsItem.all 
+    @news = Kaminari.paginate_array(NewsItem.all.order('created_at DESC')).page(params[:page]).per(20)
   end
 
   def show
