@@ -1,7 +1,5 @@
 .container
   %p NEWS
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   -@news.each do |n|
     .row
       .col-12.col-md-3

@@ -1,7 +1,5 @@
 .container
   %p THE FACES OF DOMINICAN MUSIC
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   .row
     - @stories.each do |story|
       .col-12.col-sm-6.col-md-3

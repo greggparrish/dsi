@@ -1,9 +1,7 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
     .row
-      .col-12.col-sm-6
-        =render '/shared/admin_nav'
-      .col-12.col-sm-6.table-filter
+      .col-12.table-filter
         %li.list-inline-item View:
         %li.list-inline-item= link_to 'All', admin_stories_path
         %li.list-inline-item= link_to 'Published', admin_stories_path(pubstatus: :true)

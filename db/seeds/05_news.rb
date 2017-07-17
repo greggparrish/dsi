@@ -3,7 +3,7 @@ if NewsItem.count == 0 and Rails.env == 'development'
     NewsItem.create! [
       title: Faker::Lorem.sentence,
       place: Faker::Address.city+', '+Faker::Address.country,
-      date: Faker::Time.between(10.years.ago, 70.years.ago, :all),
+      date: Faker::Time.between(2.years.ago, Date.today, :all),
       description: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
       image: File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample),
     ]

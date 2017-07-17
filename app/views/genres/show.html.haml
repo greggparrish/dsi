@@ -1,6 +1,4 @@
 .container
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   %ul.list-unstyled#genre
     %li= image_tag @genre.image
     %li= @genre.title

@@ -1,0 +1,9 @@
+-if controller_name != 'static'
+  #admin-tools
+    %ul.list-inline
+      -model = modelname(controller.controller_name)
+      %li.list-inline-item ADMIN > #{ model.upcase } :
+      %li.list-inline-item= link_to fa_icon('list'), send("admin_#{ model }_path")
+      %li.list-inline-item= link_to fa_icon('plus-circle'), send("new_admin_#{ model.singularize }_path")
+      %li.list-inline-item= fa_icon 'cog' 
+

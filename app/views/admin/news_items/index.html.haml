@@ -1,8 +1,5 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
-    .row
-      .col-12
-        =render '/shared/admin_nav'
     %table.table.table-hover#news-table
       %th date
       %th title

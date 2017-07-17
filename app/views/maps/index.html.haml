@@ -1,13 +1,8 @@
 .container
   %p MAP
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   #map-container
     #map
 
   =javascript_tag do
     var markers = #{raw @maps.to_json};
   %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GMAPS_KEY']}&callback=initMap"}
-  :cdata
-
-

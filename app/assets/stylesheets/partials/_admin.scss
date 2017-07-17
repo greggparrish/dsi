@@ -1,13 +1,19 @@
-ul#admin-nav {
-  color: $dsi_red;
-  li {
-    padding: 0 10px;
-  }
+#admin-tools {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  right: 0;
+  color: $white;
+  height: 50px;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 500px;
+  text-align: center;
+  background-color: $dsi_red;
 }
 #admin {
   margin-top: 30px;
   h1.admin { color: $dsi_red;  }
-  .table-filter { text-align: right;  }
   table {
     tr.admin > td {
       color: $dsi_red;

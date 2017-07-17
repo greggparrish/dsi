@@ -1,6 +1,4 @@
 .container
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   %ul.list-unstyled#story
     %li= image_tag @story.image
     %li= @story.name

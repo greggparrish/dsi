@@ -1,7 +1,5 @@
 .container
   %p MUSICOLOGICAL GUIDE
-  -if user_signed_in? && current_user.try(:admin?)
-    =render '/shared/admin_nav'
   .row
     - @genres.each do |genre|
       .col-12
