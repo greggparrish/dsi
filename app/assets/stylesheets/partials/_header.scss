@@ -1,15 +1,13 @@
-// Styling for the masthead
-
 header {
-  min-height: 70px;
+  min-height: 300px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  @include background-cover;
   &.masthead {
     text-align: center;
     color: white;
     background-image: url('https://unsplash.it/1920/1200');
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    @include background-cover;
     .intro-text {
       padding-top: 100px;
       padding-bottom: 50px;
@@ -27,7 +25,6 @@ header {
       }
     }
   }
-
   @media(min-width:768px) {
     header.masthead {
       .intro-text {
@@ -47,3 +44,21 @@ header {
   }
 }
 
+// Headers for all pages except home and map
+.main-container.index {
+  header{
+    padding-top: 100px;
+    #dsi-redbox {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 30px;
+      padding: 10px 0;
+      width: 300px;
+      .dmusic {
+        font-size: 1.5em;
+        border-top: 1px solid $white;
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+}

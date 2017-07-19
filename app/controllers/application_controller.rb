@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   def after_sign_in_path_for(resource)
     admin_dashboard_path
   end

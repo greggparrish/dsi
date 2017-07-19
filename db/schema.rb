@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714113411) do
+ActiveRecord::Schema.define(version: 20170719164454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20170714113411) do
     t.datetime "updated_at",  null: false
     t.string   "slug"
     t.index ["slug"], name: "index_genres_on_slug", unique: true, using: :btree
+  end
+
+  create_table "headers", force: :cascade do |t|
+    t.string   "image"
+    t.string   "title"
+    t.text     "text"
+    t.string   "guide"
+    t.string   "guide_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "model"
   end
 
   create_table "histories", force: :cascade do |t|

@@ -5,8 +5,8 @@
   padding: 15px 0;
   z-index: 999;
   .navbar-brand {
-    border-bottom: solid 1px $dsi_baby_blue;    
-    border-top: solid 1px $dsi_baby_blue;    
+    border-bottom: solid 1px $dsi_baby_blue;
+    border-top: solid 1px $dsi_baby_blue;
     color: $dsi_baby_blue;
     display: inline-block;
     font-family: $dsi_logo;
@@ -24,22 +24,5 @@
   }
   a, i {
     color: $white;
-  }
-  #admin-nav {
-    .dropdown-toggle {
-      i {
-      color: $dsi_red;
-    }
-      &:after {
-        display: none;
-      }
-    }
-    .dropdown-menu {
-      background: $dsi_grey_trans;
-      border: 0;
-      a:hover {
-        background: transparent;
-      }
-    }
   }
 }
