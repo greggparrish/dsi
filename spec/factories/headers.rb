@@ -7,7 +7,7 @@
 #  guide_text :string
 #  id         :integer          not null, primary key
 #  image      :string
-#  model      :string
+#  modelname  :string
 #  text       :text
 #  title      :string
 #  updated_at :datetime         not null

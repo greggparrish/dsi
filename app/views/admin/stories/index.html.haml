@@ -1,17 +1,26 @@
 #admin.container
+  %h3 STORIES
+  #edit-header.row
+    .col-12.col-md-4.header-image
+      =image_tag @header.image
+    .col-12.col-md-8
+      %p= @header.title
+      %p EDIT HEADER
+    #header-form
+      =render '/admin/header/form'
   -if user_signed_in? && current_user.admin?
     .row
       .col-12.table-filter
         %li.list-inline-item View:
         %li.list-inline-item= link_to 'All', admin_stories_path
         %li.list-inline-item= link_to 'Published', admin_stories_path(pubstatus: :true)
-        %li.list-inline-item= link_to 'Unpublished', admin_stories_path(pubstatus: :false) 
+        %li.list-inline-item= link_to 'Unpublished', admin_stories_path(pubstatus: :false)
     %table.table.table-hover
       %th published
       %th date added
       %th email
       %th story
-      %th 
+      %th
       %th
       -@stories.each do |s|
         %tr
@@ -22,5 +31,5 @@
           %td
             = link_to "edit", edit_admin_story_path(s.id)
             |
-            = link_to 'delete', admin_genre_path(s), method: :delete, data: { confirm: 'Are you sure?' } 
+            = link_to 'delete', admin_genre_path(s), method: :delete, data: { confirm: 'Are you sure?' }
     = paginate @stories

@@ -2,18 +2,29 @@
   position: fixed;
   bottom:0;
   left: 0;
-  right: 0;
   color: $white;
   height: 50px;
   margin: 0 auto;
   padding: 20px;
-  max-width: 500px;
   text-align: center;
   background-color: $dsi_red;
+  a {
+    color: $white;
+  }
 }
 #admin {
   padding-top: 80px;
-  h1.admin { color: $dsi_red;  }
+  h3 {
+    font: 100 1.4em $font_2;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $black;
+  }
+  #edit-header {
+    background: $lightest-grey;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
   table {
     tr.admin > td {
       color: $dsi_red;

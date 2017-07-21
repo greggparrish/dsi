@@ -1,9 +1,12 @@
-%header{style: "background-image: url(#{image_url('guide_bg.jpg')})"}
+%header{style: "background-image: url(#{image_url(@header.image)})"}
   .container
     =render 'shared/redbox'
     .row
       .col-12.col-md-8
-        %h1 A MUSICOLOGICAL GUIDE TO DOMINICAN MUSIC
+        %h1= @header.title
+        -if controller.action_name == 'index'
+          %p= @header.text.html_safe
       -if controller.controller_name == 'genres'
         .col-12.col-md-4
-          %h1 A MUSICOLOGICAL GUIDE TO DOMINICAN MUSIC
+          =link_to 'DOWNLOAD', root_path
+          %p= @header.guide_text

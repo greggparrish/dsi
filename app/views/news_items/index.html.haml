@@ -1,10 +1,9 @@
 =render 'shared/header'
 .container
-  %p NEWS
   -@news.each do |n|
     .row
       .col-12.col-md-3
-        =image_tag(n.image.sq_thumb)
+        =link_to image_tag(n.image.sq_thumb), news_item_path(n)
       .col-12.col-md-9
         %ul.list-unstyled
           %li=n.title

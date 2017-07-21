@@ -1,0 +1,11 @@
+=render 'shared/header'
+.container
+  .row
+    .col-12.col-md-6
+      %h4= @ni.title
+      %p= @ni.date.strftime("%B %-d, %Y")
+      %p= @ni.place
+      %span= @ni.description.html_safe
+    .col-12.col-md-6
+      =image_tag @ni.image
+

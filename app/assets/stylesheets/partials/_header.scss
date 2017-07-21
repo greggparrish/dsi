@@ -45,7 +45,7 @@ header {
 }
 
 // Headers for all pages except home and map
-.main-container.index {
+.main-container.index, .main-container.show {
   header{
     padding-top: 100px;
     #dsi-redbox {
