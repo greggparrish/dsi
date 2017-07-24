@@ -1,0 +1,17 @@
+.col-12
+  = simple_form_for [:admin, @header] do |f|
+    .col-12.form-group
+      = f.input :image
+    .col-12.form-group
+      = f.input :title
+    .col-12.form-group
+      = f.input :text
+    -if controller.controller_name == 'genres'
+      .col-12.form-group
+        = f.input :guide
+      .col-12.form-group
+        = f.input :guide_text
+    .col-12.col-sm-6.form-group
+      = f.button :submit, class: 'btn-success'
+
+

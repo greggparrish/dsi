@@ -1,0 +1,10 @@
+-if ! params['page']
+  #edit-header.row
+    .col-12.col-md-4.header-image
+      =image_tag @header.image
+    .col-12.col-md-8
+      %p= @header.title
+      %btn.btn-link#edit-header-btn EDIT HEADER
+    #header-form.row
+      =render '/admin/headers/form'
+

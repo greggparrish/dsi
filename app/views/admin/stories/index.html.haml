@@ -1,14 +1,7 @@
 #admin.container
-  %h3 STORIES
-  #edit-header.row
-    .col-12.col-md-4.header-image
-      =image_tag @header.image
-    .col-12.col-md-8
-      %p= @header.title
-      %p EDIT HEADER
-    #header-form
-      =render '/admin/header/form'
   -if user_signed_in? && current_user.admin?
+    %h3 STORIES
+    = render '/admin/headers/edit'
     .row
       .col-12.table-filter
         %li.list-inline-item View:

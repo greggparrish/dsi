@@ -21,6 +21,8 @@
 
 class History < ApplicationRecord
   extend FriendlyId
+  has_one :header
+  accepts_nested_attributes_for :header
 	friendly_id :slug_candidates, use: :slugged
 	def slug_candidates
 		[

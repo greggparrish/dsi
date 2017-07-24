@@ -20,10 +20,21 @@
     margin-bottom: 10px;
     border-bottom: 1px solid $black;
   }
+  .table-filter {
+    margin: 10px 0 20px 0;
+  }
   #edit-header {
     background: $lightest-grey;
     padding: 20px;
     margin-bottom: 20px;
+    #header-form {
+      display: none;
+      width: 100%;
+      .edit_header {
+        margin-top: 30px;
+        width: 100%;
+      }
+    }
   }
   table {
     tr.admin > td {

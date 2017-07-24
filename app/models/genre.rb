@@ -18,6 +18,8 @@
 
 class Genre < ApplicationRecord
   extend FriendlyId
+  has_one :header
+  accepts_nested_attributes_for :header
   mount_uploader :image, GenreImagesUploader
   friendly_id :title, use: :slugged
 end

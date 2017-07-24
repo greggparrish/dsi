@@ -1,5 +1,7 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
+    %h3 HISTORY
+    = render '/admin/headers/edit'
     %table.table.table-hover#news-table
       %th date
       %th title
@@ -13,7 +15,7 @@
           %td
             = link_to "edit", edit_admin_history_path(h.id)
             |
-            = link_to 'delete', admin_history_path(h), method: :delete, data: { confirm: 'Are you sure?' } 
+            = link_to 'delete', admin_history_path(h), method: :delete, data: { confirm: 'Are you sure?' }
 
 
 

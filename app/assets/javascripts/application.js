@@ -6,3 +6,6 @@ $(document).on('click',function(e) {
     $('#containerNavbar').removeClass('show');
   }
 });
+$('#edit-header-btn').click(function() {
+	$('#header-form').slideToggle();
+})
