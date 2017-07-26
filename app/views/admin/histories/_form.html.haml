@@ -1,19 +1,47 @@
 - if @history.errors.any?
   #error_explanation
     %h2
-      = pluralize(@history.errors.count, "error") 
+      = pluralize(@history.errors.count, "error")
       prohibited this history from being saved:
     %ul
       - @history.errors.full_messages.each do |message|
         %li= message
+
 .form-wrapper#history-form
-  = simple_form_for @history do |f|
+  = simple_form_for [:admin, @history] do |f|
     .row
       .col-12.form-group
         = f.input :title
+      .col-12.form-group
+        -if @history.date
+          = f.input :date, as: :date, html5: true, input_html: { value: localize(@history.date) }
+        -else
+          = f.input :date, as: :date, html5: true
+      .col-12.form-group
+        .row
+          .col-6
+            = f.input :latitude
+          .col-6
+            = f.input :longitude
+      .col-12.form-group
+        = f.input :media
+      .col-12.form-group
+        .row
+          .col-6
+            = f.input :image
+          .col-6
+            = image_tag(f.object.image.sq_thumb) if f.object.image?
+      .col-12.form-group
+        = f.input :description
+      .col-12.form-group
+        .row
+          .col-6
+            = f.input :exclude_from_timeline
+          .col-6
+            = f.input :exclude_from_map
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
-      -unless @history.new_record?  
+      -unless @history.new_record?
         .col-12.col-sm-6.form-group
-          = link_to 'Delete', admin_history_path(@history), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger' 
+          = link_to 'Delete', admin_history_path(@history), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'
 

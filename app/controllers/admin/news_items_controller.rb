@@ -52,12 +52,12 @@ class Admin::NewsItemsController < ApplicationController
 
   private
     def set_ni
-      @ni = NewsItem.find(params[:id])
+      @ni = NewsItem.friendly.find(params[:id])
       authorize [:admin, @ni]
     end
 
     def ni_params
-      params.require(:ni).permit(:date,:description,:place,:title)
+      params.require(:news_item).permit(:date,:description,:place,:title)
     end
 
 end

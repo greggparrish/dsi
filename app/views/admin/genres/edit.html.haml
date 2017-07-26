@@ -1,4 +1,7 @@
 #admin.container
-  %h1 Editing genre
-  = link_to 'Show', @genre
+  %h1
+    Editing genre: #{@genre.title}
+    (
+    = link_to 'Show', @genre
+    )
   = render 'form'

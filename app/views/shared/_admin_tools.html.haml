@@ -1,5 +1,11 @@
 -if controller_name != 'static'
   #admin-tools
     -model = modelname(controller.controller_name)
-    .list-inline-item= link_to fa_icon('cog'), send("admin_#{ model }_path")
+    -action = controller.action_name
+    -if action == 'show'
+      .list-inline-item= link_to fa_icon('cog'), send("edit_admin_#{ model.singularize }_path")
+    -elsif action == 'index' and controller.class.name.split("::").first=="Admin"
+      .list-inline-item= link_to fa_icon('plus-circle'), send("new_admin_#{ model.singularize }_path")
+    -else
+      .list-inline-item= link_to fa_icon('cog'), send("admin_#{ model }_path")
 

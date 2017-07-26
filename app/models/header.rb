@@ -15,4 +15,5 @@
 
 class Header < ApplicationRecord
   mount_uploader :image, HeadersUploader
+  mount_uploader :guide, PdfUploader
 end

@@ -1,13 +1,13 @@
 - if @genre.errors.any?
   #error_explanation
     %h2
-      = pluralize(@genre.errors.count, "error") 
+      = pluralize(@genre.errors.count, "error")
       prohibited this genre from being saved:
     %ul
       - @genre.errors.full_messages.each do |message|
         %li= message
 .form-wrapper#genre-form
-  = simple_form_for @genre do |f|
+  = simple_form_for [:admin, @genre] do |f|
     .row
       .col-12.form-group
         = f.input :title
@@ -16,10 +16,13 @@
       .col-12.form-group
         = f.input :audio
       .col-12.form-group
-        %p Image (Optional)
-        = f.input :image, label: false
+        .row
+          .col-6
+            = f.input :image, label: false
+          .col-6
+            = image_tag(f.object.image.thumb) if f.object.image?
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
-      -unless @genre.new_record?  
+      -unless @genre.new_record?
         .col-12.col-sm-6.form-group
-          = link_to 'Delete', admin_genre_path(@genre), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger' 
+          = link_to 'Delete', admin_genre_path(@genre), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'

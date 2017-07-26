@@ -58,7 +58,7 @@ class Admin::GenresController < ApplicationController
     end
 
     def genre_params
-      params.fetch(:genre, {})
+      params.require(:genre).permit(:audio,:description,:image,:title)
     end
 end
 

@@ -1,19 +1,34 @@
 - if @ni.errors.any?
   #error_explanation
     %h2
-      = pluralize(@ni.errors.count, "error") 
+      = pluralize(@ni.errors.count, "error")
       prohibited this item from being saved:
     %ul
       - @ni.errors.full_messages.each do |message|
         %li= message
 .form-wrapper#ni-form
-  = simple_form_for @ni do |f|
+  = simple_form_for [:admin, @ni] do |f|
     .row
       .col-12.form-group
         = f.input :title
+      .col-12.form-group
+        -if @ni.date
+          = f.input :date, as: :date, html5: true, input_html: { value: localize(@ni.date) }
+        -else
+          = f.input :date, as: :date, html5: true
+      .col-12.form-group
+        = f.input :place
+      .col-12.form-group
+        .row
+          .col-6
+            = f.input :image
+          .col-6
+            = image_tag(f.object.image.sq_thumb) if f.object.image?
+      .col-12.form-group
+        = f.input :description
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
-      -unless @ni.new_record?  
+      -unless @ni.new_record?
         .col-12.col-sm-6.form-group
-          = link_to 'Delete', admin_ni_path(@ni), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger' 
+          = link_to 'Delete', admin_news_item_path(@ni), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'
 
