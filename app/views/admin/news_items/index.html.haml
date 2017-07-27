@@ -1,6 +1,10 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
-    %h3 NEWS
+    %h3
+      NEWS
+      (
+      =link_to 'SHOW', news_items_path
+      )
     = render '/admin/headers/edit'
     %table.table.table-hover#news-table
       %th date

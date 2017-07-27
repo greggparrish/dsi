@@ -1,3 +1,7 @@
 #admin.container
-  %h1 Editing map / timeline item
+  %h1
+    Editing map / timeline item
+    (
+    = link_to 'Show', @history
+    )
   = render 'form'

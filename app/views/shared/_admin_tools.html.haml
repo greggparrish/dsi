@@ -7,5 +7,5 @@
     -elsif action == 'index' and controller.class.name.split("::").first=="Admin"
       .list-inline-item= link_to fa_icon('plus-circle'), send("new_admin_#{ model.singularize }_path")
     -else
-      .list-inline-item= link_to fa_icon('cog'), send("admin_#{ model }_path")
+      .list-inline-item= link_to fa_icon('list'), send("admin_#{ model }_path")
 

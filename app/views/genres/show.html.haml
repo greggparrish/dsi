@@ -1,8 +1,13 @@
+=render 'shared/header'
 .container
-  %ul.list-unstyled#genre
-    %li= image_tag @genre.image
-    %li= @genre.title
-    %li= link_to 'youtube', @genre.audio
-    %li.text= @genre.description.html_safe
-   
-
+  %h4= @genre.title
+  .row
+    .col-12.col-md-6.push-md-6
+      =image_tag @genre.image
+    .col-12.col-md-6.pull-md-6
+      %ul.list-unstyled
+        %li.list-inline-item= @genre.description.html_safe
+        %li.list-inline-item= link_to "View on Youtube", @genre.audio, {class: 'embedLink', 'data-toggle': 'modal', 'data-target': "#videoEmbed"}
+        %li.list-inline-item= link_to "View Images", root_path
+        %li.list-inline-item= link_to "Listen to Sample Audio", root_path
+=render '/shared/videomodal'

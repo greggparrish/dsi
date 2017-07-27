@@ -1,6 +1,10 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
-    %h3 MUSICOLOGICAL GUIDE
+    %h3
+      MUSICOLOGICAL GUIDE
+      (
+      =link_to 'SHOW', genres_path
+      )
     = render '/admin/headers/edit'
     %table.table.table-hover#genre-table
       %th title

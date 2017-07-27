@@ -1,6 +1,10 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
-    %h3 STORIES
+    %h3
+      STORIES
+      (
+      =link_to 'SHOW', stories_path
+      )
     = render '/admin/headers/edit'
     .row
       .col-12.table-filter

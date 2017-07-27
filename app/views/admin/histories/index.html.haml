@@ -1,6 +1,12 @@
 #admin.container
   -if user_signed_in? && current_user.admin?
-    %h3 HISTORY
+    %h3
+      HISTORY
+      (
+      =link_to 'MAP', map_path
+      |
+      =link_to 'TIMELINE', timeline_path
+      )
     = render '/admin/headers/edit'
     %table.table.table-hover#news-table
       %th date

@@ -1,0 +1,9 @@
+=render 'shared/header'
+.container
+  %h4= @history.title
+  .row
+    .col-12.col-md-6.push-md-6
+      =image_tag @history.image
+    .col-12.col-md-6.pull-md-6
+      %ul.list-unstyled
+        %li.list-inline-item= @history.description.html_safe
