@@ -1,4 +1,4 @@
-class Admin::NewsItemsController < ApplicationController
+class Admin::NewsItemsController < Admin::ApplicationController
   before_action :set_ni, only: [:show, :edit, :update, :destroy]
 
   def index

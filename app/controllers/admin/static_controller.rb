@@ -1,4 +1,4 @@
-class Admin::StaticController < ApplicationController
+class Admin::StaticController < Admin::ApplicationController
   def home
     authorize :static, :home?
     @stories = policy_scope(Story).order("created_at ASC").limit(3)

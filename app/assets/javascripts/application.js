@@ -1,5 +1,6 @@
 //= require jquery3
 //= require jquery_ujs
+//= require ckeditor/init
 //= require_tree
 
 $(document).on('click',function(e) {

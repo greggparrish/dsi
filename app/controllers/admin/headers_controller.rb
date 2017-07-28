@@ -1,4 +1,4 @@
-class Admin::HeadersController < ApplicationController
+class Admin::HeadersController < Admin::ApplicationController
 
   def new
     @header = Header.new

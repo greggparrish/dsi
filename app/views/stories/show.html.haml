@@ -4,4 +4,4 @@
     %li= image_tag @story.image
     %li= @story.name
     %li= @story.place
-    %li.text= @story.story_text
+    %li.text= @story.story_text.html_safe

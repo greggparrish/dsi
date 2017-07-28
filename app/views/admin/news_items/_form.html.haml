@@ -25,7 +25,7 @@
           .col-6
             = image_tag(f.object.image.sq_thumb) if f.object.image?
       .col-12.form-group
-        = f.input :description
+        = f.input :description, as: :ckeditor
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
       -unless @ni.new_record?

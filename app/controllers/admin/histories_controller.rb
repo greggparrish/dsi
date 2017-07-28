@@ -1,4 +1,4 @@
-class Admin::HistoriesController < ApplicationController
+class Admin::HistoriesController < Admin::ApplicationController
   before_action :set_history, only: [:show, :edit, :update, :destroy]
 
   def index

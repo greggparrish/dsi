@@ -7,6 +7,7 @@ end
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 1.0'
+gem 'ckeditor'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem "font-awesome-rails"

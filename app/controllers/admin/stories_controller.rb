@@ -1,4 +1,4 @@
-class Admin::StoriesController < ApplicationController
+class Admin::StoriesController < Admin::ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def index
