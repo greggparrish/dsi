@@ -15,10 +15,9 @@
 
   %body
     = render 'shared/nav'
-    -unless current_page?(root_path)
-      = yield(:header)
-    %div{class:"main-container #{controller_name} #{controller.action_name}"}
-      = yield
+    #admin.container
+      -if user_signed_in? && current_user.admin?
+        =yield
     = render 'shared/footer'
     -if user_signed_in? && current_user.admin?
       = render 'shared/admin_tools'

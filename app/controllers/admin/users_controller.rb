@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,37 +18,53 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.new(user_params)
     authorize [:admin, @user]
     if @user.save
-      redirect_to @user, notice: 'user was successfully created.'
+      redirect_to admin_users_path, notice: 'user was successfully created.'
     else
       render :new
     end
   end
 
   def edit
-    authorize @user
+    authorize [:admin, @user]
   end
 
   def update
-    if @user.update_attributes(user_params)
-      redirect_to users_path, :notice => "User updated."
+    if needs_password?(@user, user_params)
+      if @user.update_with_password(user_params_password_update)
+        redirect_to admin_users_path, notice: 'user updated.'
+      else
+        error = true
+      end
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      if @user.update_without_password(user_params)
+        redirect_to admin_users_path, notice: 'user updated.'
+      else
+        error = true
+      end
+    end
+
+    if error
+      redirect_to admin_users_path, notice: 'errors in form.'
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to users_path, :notice => "User deleted."
+    redirect_to admin_users_path, :notice => "User deleted."
   end
 
   private
   def set_user
-		@user = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
     authorize [:admin, @user]
   end
 
   def user_params
     params.require(:user).permit(:role, :username, :email, :password, :password_confirmation)
+  end
+
+  def needs_password?(user, user_params)
+    !user_params[:password].blank?
   end
 
 end

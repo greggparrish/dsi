@@ -1,28 +1,22 @@
-#admin.container
-  -if user_signed_in? && current_user.admin?
-    %h3
-      HISTORY
-      (
-      =link_to 'MAP', map_path
-      |
-      =link_to 'TIMELINE', timeline_path
-      )
-    = render '/admin/headers/edit'
-    %table.table.table-hover#news-table
-      %th date
-      %th title
-      %th description
-      %th
-      -@histories.each do |h|
-        %tr
-          %td= h.date.strftime("%B %-d, %Y")
-          %td= h.title
-          %td= truncate(h.description.html_safe, length: 50, escape: false)
-          %td
-            = link_to "edit", edit_admin_history_path(h.id)
-            |
-            = link_to 'delete', admin_history_path(h), method: :delete, data: { confirm: 'Are you sure?' }
-
-
-
-
+%h3
+  HISTORY
+  (
+  =link_to 'MAP', map_path
+  |
+  =link_to 'TIMELINE', timeline_path
+  )
+= render '/admin/headers/edit'
+%table.table.table-hover#news-table
+  %th date
+  %th title
+  %th description
+  %th
+  -@histories.each do |h|
+    %tr
+      %td= h.date.strftime("%B %-d, %Y")
+      %td= h.title
+      %td= truncate(h.description.html_safe, length: 50, escape: false)
+      %td
+        = link_to "edit", edit_admin_history_path(h.id)
+        |
+        = link_to 'delete', admin_history_path(h), method: :delete, data: { confirm: 'Are you sure?' }

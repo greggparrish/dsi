@@ -9,6 +9,8 @@
 .form-wrapper#story-form
   = simple_form_for [:admin, @story] do |f|
     .row
+      .col-12.form-group
+        = f.input :published
       .col-12.col-sm-6.form-group
         = f.input :name
       .col-12.col-sm-6.form-group
@@ -23,8 +25,6 @@
             = f.input :image
           .col-6
             = image_tag(f.object.image.thumb) if f.object.image?
-      .col-12.form-group
-        = f.input :published
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
       -unless @story.new_record?

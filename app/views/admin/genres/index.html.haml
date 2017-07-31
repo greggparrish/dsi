@@ -1,22 +1,18 @@
-#admin.container
-  -if user_signed_in? && current_user.admin?
-    %h3
-      MUSICOLOGICAL GUIDE
-      (
-      =link_to 'SHOW', genres_path
-      )
-    = render '/admin/headers/edit'
-    %table.table.table-hover#genre-table
-      %th title
-      %th description
-      %th
-      -@genres.each do |g|
-        %tr
-          %td= g.title
-          %td= truncate(g.description.html_safe, length: 50, escape: false)
-          %td
-            = link_to "edit", edit_admin_genre_path(g.id)
-            |
-            = link_to 'delete', admin_genre_path(g), method: :delete, data: { confirm: 'Are you sure?' }
-
-
+%h3
+  MUSICOLOGICAL GUIDE
+  (
+  =link_to 'SHOW', genres_path
+  )
+= render '/admin/headers/edit'
+%table.table.table-hover#genre-table
+  %th title
+  %th description
+  %th
+  -@genres.each do |g|
+    %tr
+      %td= g.title
+      %td= truncate(g.description.html_safe, length: 50, escape: false)
+      %td
+        = link_to "edit", edit_admin_genre_path(g.id)
+        |
+        = link_to 'delete', admin_genre_path(g), method: :delete, data: { confirm: 'Are you sure?' }

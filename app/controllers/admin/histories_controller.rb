@@ -52,7 +52,7 @@ class Admin::HistoriesController < Admin::ApplicationController
 
   private
     def set_history
-      @history = History.find(params[:id])
+      @history = History.friendly.find(params[:id])
       authorize [:admin, @history]
     end
 

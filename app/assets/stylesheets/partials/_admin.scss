@@ -50,6 +50,9 @@
     tr.admin > td {
       color: $dsi_red;
     }
+    tr.editor > td {
+      color: $dsi_baby_blue;
+    }
     i {
       font-size: 1.2em;
       &.published {color: $green}

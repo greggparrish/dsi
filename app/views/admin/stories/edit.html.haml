@@ -1,7 +1,6 @@
-#admin.container
-  %h1
-    Editing story
-    (
-    = link_to 'Show', @story
-    )
-  = render 'form'
+%h1
+  Editing story from #{@story.name}
+  (
+  = link_to 'Show', @story
+  )
+= render 'form'

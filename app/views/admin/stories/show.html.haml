@@ -1,9 +1,7 @@
-#admin.container
-  -if user_signed_in? && current_user.admin?
-    = link_to 'Edit', edit_story_path(@story)
-    = link_to 'Edit', edit_story_path(@story)
-  %ul.list-unstyled#story
-    %li= image_tag @story.image
-    %li= @story.name
-    %li= @story.place
-    %li.text= @story.story_text
+  = link_to 'Edit', edit_story_path(@story)
+  = link_to 'Edit', edit_story_path(@story)
+%ul.list-unstyled#story
+  %li= image_tag @story.image
+  %li= @story.name
+  %li= @story.place
+  %li.text= @story.story_text
