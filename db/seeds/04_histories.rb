@@ -1,6 +1,8 @@
 if History.count < 10 and Rails.env == 'development'
   200.times do
     History.create! [
+      exclude_from_map: Faker::Boolean.boolean,
+      exclude_from_timeline: Faker::Boolean.boolean,
       title: Faker::Lorem.sentence,
       date: Faker::Time.between(10.years.ago, 70.years.ago, :all),
       description: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,

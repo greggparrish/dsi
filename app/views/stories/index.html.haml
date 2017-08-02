@@ -9,5 +9,5 @@
           %ul.list-unstyled
             %li= story.name
             %li= story.place
-            %li= truncate(story.story_text, length: 100)
+            %li= truncate(story.story_text, length: 100, escape: false)
   = paginate @stories
