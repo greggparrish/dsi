@@ -1,5 +1,7 @@
 if History.count < 10 and Rails.env == 'development'
-  200.times do
+  lines = File.readlines("stations.csv")
+  markers = lines.sample(200)
+  markers.each do |m|
     History.create! [
       exclude_from_map: Faker::Boolean.boolean,
       exclude_from_timeline: Faker::Boolean.boolean,
@@ -8,8 +10,8 @@ if History.count < 10 and Rails.env == 'development'
       description: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
       media: 'https://www.youtube.com/watch?v=r454DD4EttY',
       image: File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample),
-      latitude: Faker::Address.latitude,
-      longitude: Faker::Address.longitude
+      latitude: m[0],
+      longitude: m[1]
     ]
   end
 end
