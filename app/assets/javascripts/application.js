@@ -1,6 +1,8 @@
 //= require jquery3
 //= require jquery_ujs
 //= require ckeditor/init
+//= require underscore
+//= require gmaps/google
 //= require_tree
 
 $(document).on('click',function(e) {

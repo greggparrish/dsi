@@ -13,6 +13,7 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'friendly_id'
 gem 'geocoder'
+gem 'gmaps4rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -29,11 +30,11 @@ gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'underscore-rails'
 
 group :development, :test do
   gem 'annotate'
   gem 'awesome_print'
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false

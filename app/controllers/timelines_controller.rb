@@ -1,7 +1,7 @@
 class TimelinesController < ApplicationController
 
   def index
-    @timeline = History.all
+    @timeline = History.where(exclude_from_timeline: false).where.not(date: nil)
     authorize @timeline
   end
 

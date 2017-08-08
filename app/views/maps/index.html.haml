@@ -1,8 +1,7 @@
 #map-container
   #map
-
 =javascript_tag do
   var markers = #{raw @maps.to_json};
-  -content_for :extra_js do
-    =javascript_include_tag :maps
-    %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GMAPS_KEY']}&callback=initMap" }
+-content_for :extra_js do
+  =javascript_include_tag :maps
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GMAPS_KEY']}&callback=initMap" }

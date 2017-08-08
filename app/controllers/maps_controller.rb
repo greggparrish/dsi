@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
 
   def index
-    @maps = History.order("created_at DESC").limit(10)
+    @maps = History.where(exclude_from_map: false).where.not(latitude: nil).where.not(longitude: nil).limit(10)
     authorize @maps
   end
 
