@@ -379,28 +379,3 @@ var mapstyle = [
   }
 ] 
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    styles: mapstyle,
-  });
-  var bounds = new google.maps.LatLngBounds();
-  var infowindow = new google.maps.InfoWindow();
-
-  for (var i = 0; i < markers.length; i++) {
-    var marker = new google.maps.Marker({
-      position: {lat: parseFloat(markers[i].latitude), lng: parseFloat(markers[i].longitude)},
-      title: markers[i].title,
-      map: map,
-      image: markers[i].image,
-      description: markers[i].description
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(this.title);
-      infowindow.open(map, this);
-    });
-    bounds.extend(marker.position);
-  }
-  map.fitBounds(bounds);
-}

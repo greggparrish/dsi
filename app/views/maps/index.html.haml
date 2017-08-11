@@ -1,7 +1,33 @@
 #map-container
   #map
-=javascript_tag do
-  var markers = #{raw @maps.to_json};
 -content_for :extra_js do
-  =javascript_include_tag :maps
-  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GMAPS_KEY']}&callback=initMap" }
+  %script{src: "//maps.googleapis.com/maps/api/js?key=#{ENV['GMAPS_KEY']}" }
+  %script{src: "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" }
+  %script{src: "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" }
+  =javascript_include_tag :mapstyle
+  =javascript_tag do
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: { styles: mapstyle }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    });
+.dsi-panel.bb
+  .container
+    %section#mapinfo
+      %h1 mapping the history of dominican music in the u.s.
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
+      .row
+        .col-12.col-sm-6.col-md-3
+          %h2 Lorem Ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
+        .col-12.col-sm-6.col-md-3
+          %h2 Lorem Ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
+        .col-12.col-sm-6.col-md-3
+          %h2 Lorem Ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
+        .col-12.col-sm-6.col-md-3
+          %h2 Lorem Ipsum
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
+

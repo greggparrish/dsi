@@ -35,6 +35,7 @@ gem 'underscore-rails'
 group :development, :test do
   gem 'annotate'
   gem 'awesome_print'
+  gem 'better_errors', '2.2.0'
   gem 'binding_of_caller'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
