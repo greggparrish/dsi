@@ -1,9 +1,22 @@
 =render 'shared/header'
 .container
-  %h4= @history.title
+  %h4
+    -if @history.date
+      %span.date= @history.date.strftime("%B %-d, %Y")
+      \:
+    =@history.title
   .row
     .col-12.col-md-6.push-md-6
       =image_tag @history.image
     .col-12.col-md-6.pull-md-6
       %ul.list-unstyled
-        %li.list-inline-item= @history.description.html_safe
+        %li
+          -if not @history.exclude_from_timeline
+            =link_to 'Timeline', "/timeline#tl_#{@history.id}"
+          -if not @history.exclude_from_timeline and not @history.exclude_from_map
+            t
+            |
+          -if not @history.exclude_from_map
+            =link_to 'Map', "/map#m_#{@history.id}"
+        %li= @history.description.html_safe
+

@@ -1,3 +1,35 @@
 =render 'shared/header'
-.container
+.dsi-panel.bb
+  .container
+    %section#overview
+      %h1 browse specific eras
+    %p Choose a specific era below
+    .row#era-list-container
+      %ul.inline-list.era-list
+        %li.list-inline-item
+          =link_to '1920s-1940s', '#40s'
+        %li.list-inline-item
+          =link_to '1950s', '#50s'
+        %li.list-inline-item
+          =link_to '1960s', '#60s'
+        %li.list-inline-item
+          =link_to '1970s', '#70s'
+        %li.list-inline-item
+          =link_to '1980s', '#80s'
+        %li.list-inline-item
+          =link_to '1990s', '#90s'
+        %li.list-inline-item
+          =link_to '2000s', '#00s'
+
+
+%section#cd-timeline.cd-container
+  -@timeline.each do |t|
+    .cd-timeline-block{ id: "tl_#{t.id}" }
+      .cd-timeline-img.cd-picture
+        =link_to (image_tag t.image.sq_thumb), history_path(t)
+      .cd-timeline-content
+        %h2
+          =link_to t.title, history_path(t)
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+        %span.cd-date= t.date.strftime("%B %-d, %Y")
 
