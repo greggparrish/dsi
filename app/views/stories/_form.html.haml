@@ -1,0 +1,21 @@
+- if @story.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@story.errors.count, "error")
+      prohibited this story from being saved:
+    %ul
+      - @story.errors.full_messages.each do |message|
+        %li= message
+.form-wrapper#user-story-form
+  = simple_form_for @story do |f|
+    .row
+      .col-12.col-sm-6.form-group
+        = f.input :name
+      .col-12.col-sm-6.form-group
+        = f.input :email
+      .col-12.form-group
+        = f.input :place
+      .col-12.form-group
+        = f.input :story_text, label: 'Your story'
+      .col-12.col-sm-12.form-group
+        = f.button :submit, 'Submit story', class: 'btn-success'

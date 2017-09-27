@@ -1,6 +1,11 @@
 =render 'shared/header'
 .container
   .row
+    .col-12
+      -flash.each do |key, value|
+        .flash(class=key)= value
+      %h2.add_story
+        =link_to 'add your story', new_story_path
     - @stories.each do |story|
       .col-12.col-sm-6.col-md-3
         .col-12

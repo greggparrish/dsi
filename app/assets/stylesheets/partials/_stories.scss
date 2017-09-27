@@ -1,0 +1,17 @@
+.main-container.stories {
+    h2.add_story {
+      border-top: 1px solid $lightest-grey;
+      border-bottom: 1px solid $lightest-grey;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  #user-story-form {
+    max-width: 600px;
+    padding-top: 20px;
+    @include centerobj;
+    .btn-success {
+      @include centerobj;
+    }
+  }
+}

@@ -5,13 +5,15 @@
     =link_to "DOMINICAN MUSIC", root_path, class: 'navbar-brand'
     #containerNavbar.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
-        = nav_link "ABOUT", about_path
-        = nav_link "MAP", map_path
-        = nav_link "TIMELINE", timeline_path
-        = nav_link "MUSICOLOGICAL GUIDE", genres_path
-        = nav_link "STORIES", stories_path
-        = nav_link "NEWS", news_items_path
+        = nav_link "ABOUT", about_path, 'about'
+        = nav_link "MAP", map_path, 'map'
+        = nav_link "TIMELINE", timeline_path, 'timeline'
+        = nav_link "MUSICOLOGICAL GUIDE", genres_path, 'musicological guide'
+        = nav_link "STORIES", stories_path, 'stories'
+        = nav_link "NEWS", news_items_path, 'news'
         = link_to fa_icon("search"), root_path, class: 'nav-link'
-        -if user_signed_in? && current_user.admin?
-          = nav_link "USERS", admin_users_path
-
+        -if user_signed_in?
+          %li
+            = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: 'nav-link'
+          -if current_user.admin?
+            = nav_link "USERS", admin_users_path

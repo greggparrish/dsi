@@ -3,9 +3,11 @@ header {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
+  margin-bottom: 30px;
   @include background-cover;
   &.masthead {
     text-align: center;
+    margin-bottom: 0;
     color: white;
     background-image: url('https://unsplash.it/1920/1200');
     .intro-text {
@@ -45,7 +47,7 @@ header {
 }
 
 // Headers for all pages except home and map
-.main-container.index, .main-container.show {
+.main-container.index, .main-container.show, .main-container.new {
   header{
     padding-top: 100px;
     #dsi-redbox {

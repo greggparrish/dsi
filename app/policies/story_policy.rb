@@ -3,7 +3,7 @@ class StoryPolicy < ApplicationPolicy
   def initialize(user, story)
     @user = user
     @story = story
-  end 
+  end
 
   class Scope < Scope
     def resolve
@@ -13,6 +13,10 @@ class StoryPolicy < ApplicationPolicy
         scope.where(published: true)
       end
     end
+  end
+
+  def create?
+    true
   end
 
   def home?
