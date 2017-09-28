@@ -27,9 +27,9 @@
       font-size: 1.1em;
       a {
         color: $dsi_red;
-        &:active {
-          font-weight: 700;
-        }
+      }
+      &.active  > a {
+          color: $light_grey;
       }
     }
   }

@@ -20,6 +20,7 @@
 class NewsItem < ApplicationRecord
 	extend FriendlyId
   has_one :header
+  validates :title, :description, presence: true
   accepts_nested_attributes_for :header
   mount_uploader :image, ImagesUploader
 	friendly_id :slug_candidates, use: :slugged

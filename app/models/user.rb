@@ -28,6 +28,7 @@
 class User < ApplicationRecord
   extend FriendlyId
   validate :validate_username
+  validates :email, :username, presence: true
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
   attr_accessor :login
   enum role: [:user, :editor, :admin]

@@ -2,7 +2,7 @@
   %nav#admin-nav
     %ul.list-unstyled
       - unless controller_name == 'dashboard'
-        = nav_link "DASHBOARD", admin_root_path
+        %li= link_to "DASHBOARD", admin_root_path, class: 'nav-link'
       = nav_link "HISTORY", admin_histories_path
       = nav_link "GENRES", admin_genres_path
       = nav_link "STORIES", admin_stories_path

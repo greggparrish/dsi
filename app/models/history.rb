@@ -24,6 +24,7 @@
 class History < ApplicationRecord
   extend FriendlyId
   has_one :header
+  validates :title, :description, presence: true
   accepts_nested_attributes_for :header
 	friendly_id :slug_candidates, use: :slugged
   mount_uploader :image, ImagesUploader
