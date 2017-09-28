@@ -1,0 +1,36 @@
+%h3
+  ADMIN DASHBOARD
+.container
+  .row
+    =render '/shared/admin_navbox'
+    .col-12.col-lg-9
+      .row
+        .col-12.admin-latest
+          %h3
+            =link_to 'LATEST UNAPPROVED STORIES', admin_stories_path(pubstatus: false)
+          %table.table.table-striped
+            -@stories.each do |s|
+              %tr
+                %td= s.created_at.strftime("%B %-d, %Y")
+                %td
+                  =link_to s.name, edit_admin_story_path(s)
+                %td= s.place
+        .col-12.admin-latest
+          %h3
+            =link_to 'LATEST NEWS', admin_news_items_path
+          %table.table.table-striped
+            -@news.each do |n|
+              %tr
+                %td= n.created_at.strftime("%B %-d, %Y")
+                %td
+                  =link_to n.title, edit_admin_news_item_path(n)
+        .col-12.admin-latest
+          %h3
+            =link_to 'LATEST HISTORY', admin_histories_path
+          %table.table.table-striped
+            -@histories.each do |h|
+              %tr
+                %td= h.created_at.strftime("%B %-d, %Y")
+                %td
+                  =link_to h.title, edit_admin_history_path(h)
+

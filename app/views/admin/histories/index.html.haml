@@ -1,23 +1,25 @@
 %h3
   HISTORY
-  (
+  ( SHOW:
   =link_to 'MAP', map_path
   |
   =link_to 'TIMELINE', timeline_path
   )
-= render '/admin/headers/edit'
-%table.table.table-hover#news-table
-  %th date
-  %th title
-  %th description
-  %th
-  -@histories.each do |h|
-    %tr
-      %td= h.date.strftime("%B %-d, %Y")
-      %td= h.title
-      %td= truncate(h.description.html_safe, length: 50, escape: false)
-      %td
-        = link_to "edit", edit_admin_history_path(h.id)
-        |
-        = link_to 'delete', admin_history_path(h), method: :delete, data: { confirm: 'Are you sure?' }
-= paginate @histories
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    = render '/admin/headers/edit'
+    %table.table.table-hover#news-table
+      %th date
+      %th title
+      %th description
+      %th
+      -@histories.each do |h|
+        %tr
+          %td= h.date.strftime("%B %-d, %Y")
+          %td
+            = link_to h.title, edit_admin_history_path(h.id)
+          %td= truncate(h.description.html_safe, length: 50, escape: false)
+          %td
+            = link_to fa_icon('trash'), admin_history_path(h), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+    = paginate @histories

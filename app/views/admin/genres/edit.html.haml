@@ -1,7 +1,9 @@
-#admin.container
-  %h1
-    Editing genre: #{@genre.title}
-    (
-    = link_to 'Show', @genre
-    )
-  = render 'form'
+%h3
+  Editing Genre
+  (
+  =link_to 'SHOW', genre_path(@genre)
+  )
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    =render 'form'

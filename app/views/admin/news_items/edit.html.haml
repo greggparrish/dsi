@@ -1,6 +1,9 @@
-%h1
-  Editing news item: #{@ni.title}
+%h3
+  Editing news item
   (
-  = link_to 'Show', @ni
+  =link_to 'SHOW', news_item_path(@ni)
   )
-= render 'form'
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    =render 'form'

@@ -3,18 +3,21 @@
   (
   =link_to 'SHOW', news_items_path
   )
-= render '/admin/headers/edit'
-%table.table.table-hover#news-table
-  %th date
-  %th title
-  %th description
-  %th
-  -@news.each do |n|
-    %tr
-      %td= n.date.strftime("%B %-d, %Y")
-      %td= n.title
-      %td= truncate(n.description.html_safe, length: 50, escape: false)
-      %td
-        = link_to "edit", edit_admin_news_item_path(n.id)
-        |
-        = link_to 'delete', admin_news_item_path(n), method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    = render '/admin/headers/edit'
+    %table.table.table-hover#news-table
+      %th date
+      %th title
+      %th description
+      %th
+      -@news.each do |n|
+        %tr
+          %td= n.date.strftime("%B %-d, %Y")
+          %td
+            =link_to n.title, edit_admin_news_item_path(n)
+          %td= truncate(n.description.html_safe, length: 50, escape: false)
+          %td
+            = link_to fa_icon('trash'), admin_news_item_path(n), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+    = paginate @news

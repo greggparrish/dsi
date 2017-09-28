@@ -3,28 +3,30 @@
   (
   =link_to 'SHOW', stories_path
   )
-= render '/admin/headers/edit'
 .row
-  .col-12.table-filter
-    %li.list-inline-item View:
-    %li.list-inline-item= link_to 'All', admin_stories_path
-    %li.list-inline-item= link_to 'Published', admin_stories_path(pubstatus: :true)
-    %li.list-inline-item= link_to 'Unpublished', admin_stories_path(pubstatus: :false)
-%table.table.table-hover
-  %th published
-  %th date added
-  %th email
-  %th story
-  %th
-  %th
-  -@stories.each do |s|
-    %tr
-      %td= pubformat(s.published)
-      %td= s.created_at.strftime("%B %-d, %Y")
-      %td= s.email
-      %td= truncate(s.story_text, length: 50)
-      %td
-        = link_to "edit", edit_admin_story_path(s.id)
-        |
-        = link_to 'delete', admin_story_path(s), method: :delete, data: { confirm: 'Are you sure?' }
-= paginate @stories
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    = render '/admin/headers/edit'
+    .row
+      .col-12.table-filter
+        %li.list-inline-item View:
+        %li.list-inline-item= link_to 'All', admin_stories_path
+        %li.list-inline-item= link_to 'Published', admin_stories_path(pubstatus: :true)
+        %li.list-inline-item= link_to 'Unpublished', admin_stories_path(pubstatus: :false)
+    %table.table.table-hover
+      %th published
+      %th date added
+      %th email
+      %th story
+      %th
+      %th
+      -@stories.each do |s|
+        %tr
+          %td= pubformat(s.published)
+          %td= s.created_at.strftime("%B %-d, %Y")
+          %td= s.email
+          %td
+            = link_to truncate(s.story_text, length: 50), edit_admin_story_path(s)
+          %td
+            = link_to fa_icon('trash'), admin_story_path(s), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+    = paginate @stories

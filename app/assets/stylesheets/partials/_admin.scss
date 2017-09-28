@@ -21,6 +21,18 @@
 }
 #admin {
   padding-top: 80px;
+  nav#admin-nav {
+    li {
+      padding: 10px 0;
+      font-size: 1.1em;
+      a {
+        color: $dsi_red;
+        &:active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
   h1 {
     color: $light_grey;
   }
@@ -28,7 +40,7 @@
     font: 100 1.4em $font_2;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $lightest_grey;
   }
   .table-filter {
     margin: 10px 0 20px 0;
@@ -47,6 +59,9 @@
     }
   }
   table {
+      th {
+        text-transform: uppercase;
+      }
     tr.admin > td {
       color: $dsi_red;
     }
@@ -57,6 +72,14 @@
       font-size: 1.2em;
       &.published {color: $green}
       &.unpublished {color: $dsi_red}
+    }
+  }
+  .admin-latest {
+    margin-top: 20px;
+  }
+  .admin-delete {
+    i {
+        color: $dsi_red;
     }
   }
 }

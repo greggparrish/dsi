@@ -2,8 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all.order("role DESC, email ASC")
-    authorize [:admin, @users]
+    @users = Kaminari.paginate_array(User.all).page(params[:page]).per(20)
   end
 
   def show

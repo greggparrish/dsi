@@ -1,6 +1,9 @@
-%h1
-  Editing story from #{@story.name}
+%h3
+  Editing story
   (
-  = link_to 'Show', @story
+  =link_to 'SHOW', story_path(@story)
   )
-= render 'form'
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    =render 'form'

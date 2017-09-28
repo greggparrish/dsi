@@ -13,7 +13,9 @@
         = nav_link "NEWS", news_items_path, 'news'
         = link_to fa_icon("search"), root_path, class: 'nav-link'
         -if user_signed_in?
+          %li.nav-link
           %li
             = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: 'nav-link'
           -if current_user.admin?
-            = nav_link "USERS", admin_users_path
+            %li.admin.nav-link
+              = link_to "ADMIN", admin_root_path

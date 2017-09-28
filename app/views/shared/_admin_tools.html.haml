@@ -1,4 +1,4 @@
--if controller_name != 'static'
+-unless ( controller_name == 'static' || controller_name == 'dashboard' )
   #admin-tools
     -model = modelname(controller.controller_name)
     -action = controller.action_name

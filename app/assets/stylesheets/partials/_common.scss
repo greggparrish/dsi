@@ -48,3 +48,8 @@ textarea:focus, input:focus, button:focus{  outline: none;}
 .container.no-header {
   padding-top: 100px;
 }
+.main-container {
+  .container {
+    margin-top: 30px;
+  }
+}

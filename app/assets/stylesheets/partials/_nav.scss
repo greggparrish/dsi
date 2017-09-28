@@ -1,28 +1,36 @@
 .navbar {
-  background: $dsi_grey_trans;
-  position: absolute;
-  width: 100%;
-  padding: 15px 0;
-  z-index: 999;
-  .navbar-brand {
-    border-bottom: solid 1px $dsi_baby_blue;
-    border-top: solid 1px $dsi_baby_blue;
-    color: $dsi_baby_blue;
-    display: inline-block;
-    font-family: $dsi_logo;
-    font-size: .9em;
-    font-weight: 700;
-    letter-spacing: 1px;
-    max-width: 200px;
-    padding: 2px 0 1px 0;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .navbar-toggler {
-    margin-top: -7px;
-    border: 0;
-  }
-  a, i {
-    color: $white;
-  }
+    background: $dsi_grey_trans;
+    position: absolute;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 999;
+    .navbar-brand {
+        border-bottom: solid 1px $dsi_baby_blue;
+        border-top: solid 1px $dsi_baby_blue;
+        color: $dsi_baby_blue;
+        display: inline-block;
+        font-family: $dsi_logo;
+        font-size: .9em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        max-width: 200px;
+        padding: 2px 0 1px 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .navbar-toggler {
+        margin-top: -7px;
+        border: 0;
+    }
+    a, i {
+        color: $white;
+    }
+    ul.navbar-nav {
+        hr {
+          background-color: $lightest_grey;
+        }
+        li.admin a {
+            color: $dsi_red;
+        }
+    }
 }
