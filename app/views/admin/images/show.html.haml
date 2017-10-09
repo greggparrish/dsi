@@ -1,0 +1,7 @@
+= link_to 'Edit', edit_image_path(@image)
+%ul.list-unstyled#image
+  %li= image_tag @image.file
+  %li= @image.title
+  %li.text= @image.description
+
+

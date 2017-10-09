@@ -1,4 +1,4 @@
-%header.masthead(style="background-image: url(#{image_url('nyc.jpg')})")
+%header.masthead(style="background-image: url(#{path_to_image('nyc.jpg')})")
   .container
     =render '/shared/redbox'
 .dsi-panel.bb
@@ -8,61 +8,76 @@
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
       .row
         .col-12.col-sm-6.col-md-3
-          %h2 your stories
+          %h2
+            = link_to 'your stories', stories_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 interactive map
+          %h2
+            = link_to 'interactive map', map_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 timelines
+          %h2
+            = link_to 'timelines', timeline_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
         .col-12.col-sm-6.col-md-3
-          %h2 genre guide
+          %h2
+            = link_to 'genre guide', genres_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
 .dsi-panel.white
   .container
     %section#stories
       .row
         .col-12.col-sm-6.col-md-3
-          %h1.bb stories
+          %h1.bb
+            = link_to 'stories', stories_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus. Fusce nunc ipsum, egestas quis turpis vitae.
         -@stories.each do |s|
           .col-12.col-sm-6.col-md-3
             =link_to image_tag(s.image.thumb), story_path(s)
-.dsi-panel.full-img(style="background-image: url(#{image_url('map.jpg')})")
+.dsi-panel.full-img(style="background-image: url(#{path_to_image('map.jpg')})")
   %section#map
     .container
       .row
         .col-12.col-sm-6.col-md-3
-          %h1.bb interactive map
+          %h1.bb
+            = link_to 'interactive map', map_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 .dsi-panel.half-blue
   .container
     %section#timeline
-      %h1.orange timelines
+      %h1.orange
+        =link_to 'timeline', timeline_path
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 .dsi-panel.bb
   %section#images
     .container
       .row
         .col-12.col-sm-6
-          %p
+          #carouselImages.carousel.slide{"data-ride" => "carousel", "data-interval" => '8000'}
+            .carousel-inner{:role => "listbox"}
+              -@images.each_with_index do |i,n|
+              -slideclasses = n == 0 ? 'row carousel-item active' : 'row carousel-item'
+                %div{ class: "#{ slideclasses }" }
+                  =link_to image_tag(i.file.rect_thumb), image_path(i)
         .col-12.col-sm-6
-          %h1 featured images from the archive
+          %h1
+            =link_to 'images from the archive', images_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-.dsi-panel.full-img(style="background-image: url(#{image_url('nyc_blur.jpg')})")
+.dsi-panel.full-img(style="background-image: url(#{path_to_image('nyc_blur.jpg')})")
   %section#news
     .container
-      %h1 News and events
-      #carouselNews.carousel.slide{"data-ride" => "carousel", "data-interval" => '5000'}
+      %h1
+        = link_to 'News and events', news_items_path
+      #carouselNews.carousel.slide{"data-ride" => "carousel", "data-interval" => '6000'}
         .carousel-inner{:role => "listbox"}
           -@news.each_with_index do |n,i|
           -slideclasses = i == 0 ? 'row carousel-item active' : 'row carousel-item'
             %div{ class: "#{ slideclasses }" }
               .col-12.col-sm-6
                 %ul.list-unstyled#news-slides
-                  %li= n.title
-                  %li= n.date.strftime("%A, %B %-d, %Y")
+                  %li.news-title
+                    =link_to n.title, news_item_path(n)
                   %li= n.place
+                  %li.news-date= n.date.strftime("%A, %B %-d, %Y")
               .col-12.col-sm-6
-                = truncate(n.description, escape: false, length: 150)
+                = truncate(n.description, escape: false, length: 300)

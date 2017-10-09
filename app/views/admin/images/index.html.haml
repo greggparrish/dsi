@@ -1,0 +1,20 @@
+%h3
+  MUSICOLOGICAL GUIDE
+  (
+  =link_to 'SHOW', images_path
+  )
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    = render '/admin/headers/edit'
+    %table.table.table-hover#image-table
+      %th title
+      %th description
+      %th
+      -@images.each do |g|
+        %tr
+          %td= link_to g.title, edit_admin_image_path(g.id)
+          %td= truncate(g.description.html_safe, length: 50, escape: false)
+          %td
+            = link_to fa_icon('trash'), admin_image_path(g), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+    = paginate @images

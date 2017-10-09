@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728183151) do
+ActiveRecord::Schema.define(version: 20171009102453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170728183151) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
-  create_table "cache_container", primary_key: "cid", id: :string, limit: 255, default: "", comment: "Primary Key: Unique cache ID.", force: :cascade, comment: "Storage for the cache API." do |t|
+  create_table "cache_container", primary_key: "cid", id: :string, limit: 255, default: "", force: :cascade, comment: "Storage for the cache API." do |t|
     t.binary  "data",                                                                         comment: "A collection of data to cache."
     t.integer "expire",                                          default: 0,     null: false, comment: "A Unix timestamp indicating when the cache entry should expire, or -1 for never."
     t.decimal "created",                precision: 14, scale: 3, default: "0.0", null: false, comment: "A timestamp with millisecond precision indicating when the cache entry was created."
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 20170728183151) do
     t.boolean  "exclude_from_map",      default: false
     t.boolean  "exclude_from_timeline", default: false
     t.index ["slug"], name: "index_histories_on_slug", unique: true, using: :btree
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "file"
+    t.string   "credit"
+    t.text     "description"
+    t.string   "slug"
   end
 
   create_table "news_items", force: :cascade do |t|

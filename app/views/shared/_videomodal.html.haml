@@ -1,5 +1,10 @@
-#videoEmbed.videoModal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+#videoEmbed.modal-video.modal.fade{"aria-labelledby" => "modal-video-label", :role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
-    .embed-responsive.embed-responsive-16by9
-      %iframe{allowfullscreen: "", frameborder: "0", src: ""}
-
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        .modal-video
+          .embed-responsive.embed-responsive-16by9
+            %iframe.embed-responsive-item{:allowfullscreen => "", :mozallowfullscreen => "", :src => "", :webkitallowfullscreen => ""}

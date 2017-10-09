@@ -7,8 +7,7 @@ $(".videoModal").on('hidden.bs.modal', function (e) {
 $('.embedLink').click(function() {
   console.log('clicked');
   var videoSrc = $(this).attr("href"); 
-  console.log(videoSrc);
-  $(".videoModal iframe").attr("src", videoSrc);
+  $(".embed-responsive iframe").attr("src", videoSrc);
 });
 
 
