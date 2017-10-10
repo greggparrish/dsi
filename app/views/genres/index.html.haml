@@ -3,15 +3,15 @@
   .row
     - @genres.each do |genre|
       .col-12
-        .col-12.col-md-3.float-md-right
-          =link_to (image_tag genre.image.thumb), genre_path(genre)
-        .col-12.col-md-9.float-md-left
+        .col-12.col-md-3.float-md-right#genre-image
+          =link_to (image_tag genre.image.thumb, alt: genre.title), genre_path(genre)
+        .col-12.col-md-9.float-md-left#genre-text
           %ul.list-unstyled
             %li
               %h2= genre.title
             %li= genre.description.html_safe
-          %ul.list-inline#genre-nav
-            %li.list-inline-item= link_to "View on Youtube", genre.audio, {class: 'embedLink', 'data-toggle': 'modal', 'data-target': "#videoEmbed"}
-            %li.list-inline-item= link_to "View Images", root_path
-            %li.list-inline-item= link_to "Listen to Sample Audio", root_path
+      .col-12
+        %ul.list-justified#genre-nav
+          %li.list-inline-item= link_to "View on Youtube", genre.audio, {class: 'embedLink', 'data-toggle': 'modal', 'data-target': "#videoEmbed"}
+          %li.list-inline-item= link_to "View all media", genre_path(genre, anchor: 'genre-media')
 =render '/shared/videomodal'

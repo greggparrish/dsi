@@ -1,20 +1,25 @@
 .dsi-panel {
-  padding: 50px 0;
-  color: $white;
-	&.full-img {
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-	}
-	&.white, &.half-blue {
-		background-color: $white;
-    color: $dsi_grey;
-	}
-	&.bb {
-		background-color: $dsi_baby_blue;
+    padding: 0;
+    margin: 0;
     color: $white;
-	}
-	&.bg {
-		background-color: $dsi_blue_green;
-	}
+    .container {
+        padding: 0;
+        margin: 0 auto;
+    }
+    &.full-img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    &.white, &.half-blue {
+        background-color: $white;
+        color: $dsi_grey;
+    }
+    &.bb {
+        background-color: $dsi_baby_blue;
+        color: $white;
+    }
+    &.bg {
+        background-color: $dsi_map_bluegreen;
+    }
 }

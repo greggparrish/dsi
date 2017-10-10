@@ -3,6 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  line-height: 1.5em;
 }
 img {
   max-width: 100%;
@@ -54,6 +55,7 @@ textarea:focus, input:focus, button:focus{  outline: none;}
   }
 }
 ul.list-justified {
+  @include centerobj;
   width: 90%;
   list-style: none;
   display: flex;

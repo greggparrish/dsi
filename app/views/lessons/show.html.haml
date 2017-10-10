@@ -1,0 +1,16 @@
+=render 'shared/header'
+.container
+  %h4= @lesson.title
+  %p.question= @lesson.question
+=image_tag @lesson.image
+.container
+  %h5 Introduction
+  =@lesson.introduction.html_safe
+  %h5 objectives
+  =@lesson.objectives.html_safe
+  %h5 Activities
+  =@lesson.activities.html_safe
+  %h5 Assessment
+  =@lesson.assessment.html_safe
+  %h5 Standards
+  =@lesson.standards.html_safe

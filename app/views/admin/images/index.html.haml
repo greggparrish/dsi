@@ -1,5 +1,5 @@
 %h3
-  MUSICOLOGICAL GUIDE
+  IMAGES
   (
   =link_to 'SHOW', images_path
   )
@@ -11,10 +11,10 @@
       %th title
       %th description
       %th
-      -@images.each do |g|
+      -@images.each do |i|
         %tr
-          %td= link_to g.title, edit_admin_image_path(g.id)
-          %td= truncate(g.description.html_safe, length: 50, escape: false)
+          %td= link_to i.title, edit_admin_image_path(i.id)
+          %td= truncate(i.description.html_safe, length: 50, escape: false)
           %td
-            = link_to fa_icon('trash'), admin_image_path(g), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+            = link_to fa_icon('trash'), admin_image_path(i), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
     = paginate @images

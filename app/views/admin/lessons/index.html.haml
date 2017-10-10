@@ -1,0 +1,18 @@
+%h3
+  LESSONS
+  (
+  =link_to 'SHOW', lessons_path
+  )
+.row
+  =render '/shared/admin_navbox'
+  .col-12.col-lg-9
+    = render '/admin/headers/edit'
+    %table.table.table-hover#lessons-table
+      %th title
+      %th
+      -@lessons.each do |l|
+        %tr
+          %td= link_to l.title, edit_admin_lesson_path(l.id)
+          %td
+            = link_to fa_icon('trash'), admin_lesson_path(l), method: :delete, data: { confirm: 'DELETE: Are you sure?' }, class: 'admin-delete'
+    = paginate @lessons

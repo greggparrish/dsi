@@ -1,6 +1,13 @@
-%p#notice= notice
+=render 'shared/header'
+.container
+  %h4= @image.title
+  .row
+    .col-12.col-md-6.push-md-6
+      =image_tag @image.file, alt: @image.title, title: @image.title
+      %span.image-credit
+        =@image.credit
+    .col-12.col-md-6.pull-md-6
+      %ul.list-unstyled
+        %li.list-inline-item= @image.description.html_safe
+=render '/shared/videomodal'
 
-
-= link_to 'Edit', edit_image_path(@image)
-\|
-= link_to 'Back', images_path

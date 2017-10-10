@@ -1,15 +1,69 @@
 .main-container.home {
-  img {
-    @include centerobj;
-  }
-  header {
-    padding: 20% 0;
-    #dsi-redbox {
-      padding-bottom: 15%;
-      padding: 15px 5px;
+    img {
+        @include centerobj;
     }
-  }
-  section {
-    min-height:300px;
-  }
+    header {
+        padding: 20% 0;
+        #dsi-redbox {
+            padding-bottom: 15%;
+            padding: 15px 5px;
+        }
+    }
+    section {
+        min-height:300px;
+        .text-box {
+          padding: 30px 25px;
+        }
+        &#overview {
+            padding: 30px 10px;
+            .site-elements {
+                margin-top: 40px;
+            }
+        }
+        &#stories {
+          padding: 30px 10px;
+        }
+        &#timeline {
+            h1 > a {
+                color: $dsi_orange;
+                &:hover, &:focus, &:active {
+                    color: $dsi_baby_blue;
+                }
+            }
+        }
+        &#map {
+            .map-img {
+              min-height: 300px;
+              a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+              }
+            }
+        }
+        &#news {
+          padding: 30px 10px;
+            h1 > a {
+                color: $white;
+                &:hover, &:focus, &:active {
+                    color: $dsi_baby_blue;
+                }
+            }
+            ul#news-slides {
+                li.news-title > a{
+                    color: $dsi_orange;
+                    text-transform: uppercase;
+                    &:hover, &:focus, &:active {
+                        color: $white;
+                    }
+                }
+                li.news-date {
+                  color: $dsi_baby_blue;
+                }
+            }
+        }
+        &#images {
+          padding: 30px 10px;
+        }
+    }
 }

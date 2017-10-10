@@ -1,0 +1,28 @@
+- if @image.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@image.errors.count, "error")
+      prohibited this image from being saved:
+    %ul
+      - @image.errors.full_messages.each do |message|
+        %li= message
+.form-wrapper#image-form
+  = simple_form_for [:admin, @image] do |f|
+    .row
+      .col-12.form-group
+        .row
+          .col-6
+            = f.input :file, label: false
+          .col-6
+            = image_tag(f.object.file.sq_thumb) if f.object.file?
+      .col-12.form-group
+        = f.input :title
+      .col-12.form-group
+        = f.input :credit
+      .col-12.form-group
+        = f.input :description, as: :ckeditor
+      .col-12.col-sm-6.form-group
+        = f.button :submit, class: 'btn-success'
+      -unless @image.new_record?
+        .col-12.col-sm-6.form-group
+          = link_to 'Delete', admin_image_path(@image), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'

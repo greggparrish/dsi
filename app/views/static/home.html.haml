@@ -1,12 +1,13 @@
 %header.masthead(style="background-image: url(#{path_to_image('nyc.jpg')})")
   .container
     =render '/shared/redbox'
+
 .dsi-panel.bb
   .container
     %section#overview
       %h1 a history of dominican music in the u.s.
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-      .row
+      .row.site-elements
         .col-12.col-sm-6.col-md-3
           %h2
             = link_to 'your stories', stories_path
@@ -23,6 +24,7 @@
           %h2
             = link_to 'genre guide', genres_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
+
 .dsi-panel.white
   .container
     %section#stories
@@ -30,40 +32,47 @@
         .col-12.col-sm-6.col-md-3
           %h1.bb
             = link_to 'stories', stories_path
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus. Fusce nunc ipsum, egestas quis turpis vitae.
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
         -@stories.each do |s|
           .col-12.col-sm-6.col-md-3
             =link_to image_tag(s.image.thumb), story_path(s)
-.dsi-panel.full-img(style="background-image: url(#{path_to_image('map.jpg')})")
-  %section#map
-    .container
+
+.dsi-panel.bg
+  .container
+    %section#map
       .row
-        .col-12.col-sm-6.col-md-3
+        .col-12.col-sm-6.col-md-9.map-img(style="background-image: url(#{path_to_image('map.jpg')})")
+          =link_to '', map_path
+        .col-12.col-sm-6.col-md-3.text-box
           %h1.bb
             = link_to 'interactive map', map_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
+
 .dsi-panel.half-blue
   .container
     %section#timeline
-      %h1.orange
-        =link_to 'timeline', timeline_path
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-.dsi-panel.bb
+      .row
+        .col-12.col-sm-6.col-md-3.text-box
+          %h1.orange
+            =link_to 'timeline', timeline_path
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
+        .col-12.col-sm-6.col-md-9
+          %p
+
+.dsi-panel.full-img(style="background-image: url(#{path_to_image('nyc_blur.jpg')})")
   %section#images
     .container
       .row
-        .col-12.col-sm-6
-          #carouselImages.carousel.slide{"data-ride" => "carousel", "data-interval" => '8000'}
-            .carousel-inner{:role => "listbox"}
-              -@images.each_with_index do |i,n|
-              -slideclasses = n == 0 ? 'row carousel-item active' : 'row carousel-item'
-                %div{ class: "#{ slideclasses }" }
-                  =link_to image_tag(i.file.rect_thumb), image_path(i)
-        .col-12.col-sm-6
+        .col-12
           %h1
             =link_to 'images from the archive', images_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-.dsi-panel.full-img(style="background-image: url(#{path_to_image('nyc_blur.jpg')})")
+        -@images.each_with_index do |i,n|
+          -hideclass = i == 0 ? '' : 'hideclass'
+          .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
+            =link_to image_tag(i.file.sq_thumb), image_path(i)
+
+.dsi-panel.bg
   %section#news
     .container
       %h1
