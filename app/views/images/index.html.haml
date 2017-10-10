@@ -1,12 +1,10 @@
 =render 'shared/header'
 .container
-  .row
-    - @images.each do |i|
-      .col-12.col-sm-6.col-md-3
-        .col-12
-          =link_to (image_tag i.file.sq_thumb), image_path(i)
-        .col-12
-          %ul.list-unstyled
-            %li= i.title
+  %h1.page-title
+    image
+  #imagegrid
+    -@images.each do |i|
+      .grid-item
+        = link_to image_tag(i.file.sq_thumb), image_path(i)
+  .clearfix
   = paginate @images
-

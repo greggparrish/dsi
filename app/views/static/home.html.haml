@@ -33,8 +33,10 @@
           %h1.bb
             = link_to 'stories', stories_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-        -@stories.each do |s|
-          .col-12.col-sm-6.col-md-3
+        -@stories.each_with_index do |s,n|
+          -if n != 0
+            -hideclass = 'hidden-md-down'
+          .col-12.col-sm-6.col-md-3{ class: "#{ hideclass }" }
             =link_to image_tag(s.image.thumb), story_path(s)
 
 .dsi-panel.bg
@@ -68,7 +70,10 @@
             =link_to 'images from the archive', images_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
         -@images.each_with_index do |i,n|
-          -hideclass = i == 0 ? '' : 'hideclass'
+          -if n == 0 or n == 1
+            -hideclass = ''
+          -else
+            -hideclass = ' hidden-md-down'
           .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
             =link_to image_tag(i.file.sq_thumb), image_path(i)
 

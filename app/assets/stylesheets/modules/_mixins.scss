@@ -3,6 +3,10 @@
 	margin: 0 auto;
 }
 
+@mixin panelpadding {
+  padding: 50px 10px;
+}
+
 @mixin fade_transition {
   transition: color 0.4s ease;
 }

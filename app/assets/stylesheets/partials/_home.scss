@@ -12,16 +12,16 @@
     section {
         min-height:300px;
         .text-box {
-          padding: 30px 25px;
+          padding: 50px 25px;
         }
         &#overview {
-            padding: 30px 10px;
+            @include panelpadding;
             .site-elements {
                 margin-top: 40px;
             }
         }
         &#stories {
-          padding: 30px 10px;
+            @include panelpadding;
         }
         &#timeline {
             h1 > a {
@@ -42,7 +42,7 @@
             }
         }
         &#news {
-          padding: 30px 10px;
+          @include panelpadding;
             h1 > a {
                 color: $white;
                 &:hover, &:focus, &:active {
@@ -63,7 +63,7 @@
             }
         }
         &#images {
-          padding: 30px 10px;
+          @include panelpadding;
         }
     }
 }
