@@ -1,11 +1,29 @@
 =render 'shared/header'
 .container
-  -@news.each do |n|
-    .row
-      .col-12.col-md-3
-        =link_to image_tag(n.image.sq_thumb), news_item_path(n)
-      .col-12.col-md-9
-        %ul.list-unstyled
-          %li=n.title
-          %li=n.description.html_safe
+  .row
+    -news_year = nil
+    -@news.each_with_index do |n,i|
+      -if i == 0
+        .news-feature.row
+          .col-12.col-md-5.news-img-wrapper
+            =link_to image_tag(n.image.rect_thumb), news_item_path(n)
+          .col-12.col-md-7
+            %ul.list-unstyled
+              %li.news-date= n.date.strftime("%B %-d, %Y")
+              %li.news-title
+                =link_to n.title, news_item_path(n)
+              %li=truncate(n.description.html_safe, length: 200, escape: false)
+      -else
+        -if news_year.nil? or news_year > n.date.year
+          - news_year = n.date.year
+          %h2= news_year
+        .col-6.col-md-6.news-grid-item
+          .row.news-item-inner
+            .col-12.col-md-3.news-img-wrapper
+              =link_to image_tag(n.image.sq_thumb), news_item_path(n)
+            .col-12.col-md-9
+              %ul.list-unstyled
+                %li.news-date= n.date.strftime("%B %-d, %Y")
+                %li.news-title
+                  =link_to n.title, news_item_path(n)
   = paginate @news
