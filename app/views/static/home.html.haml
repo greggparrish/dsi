@@ -1,4 +1,4 @@
-%header.masthead(style="background-image: url(#{path_to_image('nyc.jpg')})")
+%header.masthead(style="background-image: url(#{path_to_image('joseito_mateo.jpg')})")
   .container
     =render '/shared/redbox'
 
@@ -25,7 +25,7 @@
             = link_to 'genre guide', genres_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh.
 
-.dsi-panel.white
+.dsi-panel.full-img(style="background-image: url(#{path_to_image('luis_herrero_faded.jpg')})")
   .container
     %section#stories
       .row
@@ -37,13 +37,13 @@
           -if n != 0
             -hideclass = 'hidden-md-down'
           .col-12.col-sm-6.col-md-3{ class: "#{ hideclass }" }
-            =link_to image_tag(s.image.thumb), story_path(s)
+            =link_to image_tag(s.image.sq_thumb, alt: s.name), story_path(s)
 
 .dsi-panel.bg
   .container
     %section#map
       .row
-        .col-12.col-sm-6.col-md-9.map-img(style="background-image: url(#{path_to_image('map.jpg')})")
+        .col-12.col-sm-6.col-md-9.map-img(style="background-image: url(#{path_to_image('map.png')})")
           =link_to '', map_path
         .col-12.col-sm-6.col-md-3.text-box
           %h1.bb
@@ -75,7 +75,7 @@
           -else
             -hideclass = ' hidden-md-down'
           .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
-            =link_to image_tag(i.file.sq_thumb), image_path(i)
+            =link_to image_tag(i.file.sq_thumb), image_path(i), alt: i.title, title: i.title
 
 .dsi-panel.bg
   %section#news

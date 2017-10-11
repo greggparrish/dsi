@@ -1,10 +1,8 @@
 =render 'shared/header'
 .container
-  %h1.page-title
-    image
-  #imagegrid
+  .row
     -@images.each do |i|
-      .grid-item
-        = link_to image_tag(i.file.sq_thumb), image_path(i)
+      .col-6.col-lg-3.img-grid
+        = link_to image_tag(i.file.sq_thumb), image_path(i), alt: i.title, title: i.title
   .clearfix
   = paginate @images

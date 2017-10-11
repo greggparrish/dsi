@@ -4,7 +4,7 @@
     - @genres.each do |genre|
       .col-12
         .col-12.col-md-3.float-md-right#genre-image
-          =link_to (image_tag genre.image.thumb, alt: genre.title), genre_path(genre)
+          =link_to (image_tag genre.image.sq_thumb, alt: genre.title), genre_path(genre)
         .col-12.col-md-9.float-md-left#genre-text
           %ul.list-unstyled
             %li

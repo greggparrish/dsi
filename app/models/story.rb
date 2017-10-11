@@ -14,7 +14,7 @@
 #
 
 class Story < ApplicationRecord
-  mount_uploader :image, StoryImagesUploader
+  mount_uploader :image, ImagesUploader
   has_one :header
   validates :email, :name, :place, :story_text, presence: true
   accepts_nested_attributes_for :header

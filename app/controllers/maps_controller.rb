@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
 
   def index
-    @maps = History.where(exclude_from_map: false).where.not(latitude: nil).where.not(longitude: nil).limit(10)
+    @maps = History.where(exclude_from_map: false).where.not(latitude: nil).where.not(longitude: nil)
     authorize @maps
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
       marker.infowindow render_to_string(partial: "/maps/infowindow", locals:  { object: map})

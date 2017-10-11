@@ -3,6 +3,9 @@
 	margin: 0 auto;
 }
 
+@mixin prefootpadding {
+  padding-bottom: 30px;
+}
 @mixin panelpadding {
   padding: 50px 10px;
 }

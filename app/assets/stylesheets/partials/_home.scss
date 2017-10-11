@@ -21,6 +21,7 @@
             }
         }
         &#stories {
+            color: $dark_grey;
             @include panelpadding;
         }
         &#timeline {

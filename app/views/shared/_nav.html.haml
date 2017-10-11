@@ -13,7 +13,6 @@
         = nav_link "MUSICOLOGICAL GUIDE", genres_path, 'musicological guide'
         = nav_link "STORIES", stories_path, 'stories'
         = nav_link "NEWS", news_items_path, 'news'
-        = link_to fa_icon("search"), root_path, class: 'nav-link'
         -if user_signed_in?
           %li.nav-link
           %li

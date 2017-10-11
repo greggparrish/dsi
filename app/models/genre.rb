@@ -21,6 +21,6 @@ class Genre < ApplicationRecord
   has_one :header
   accepts_nested_attributes_for :header
   validates :title, presence: true
-  mount_uploader :image, GenreImagesUploader
+  mount_uploader :image, ImagesUploader
   friendly_id :title, use: :slugged
 end
