@@ -1,10 +1,17 @@
-=render 'shared/header'
-.container
+%header.blur
+  .blur{style: "background-image: url(#{@ni.image})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          News:
+          =@ni.title
+        -if controller.action_name == 'index'
+          %p= @header.text.html_safe
+.container#page-content
   .row
-    .col-12.col-md-6.push-md-6
-      =image_tag @ni.image
-    .col-12.col-md-6.pull-md-6
-      %h4= @ni.title
+    .col-12
       %p= @ni.date.strftime("%B %-d, %Y")
       %p= @ni.place
       %span= @ni.description.html_safe

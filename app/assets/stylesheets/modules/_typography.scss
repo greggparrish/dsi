@@ -17,6 +17,7 @@ a {
 }
 
 h1,h2,h3,h4,h5 {
+    z-index: 10;
     font: 100 16px $header_font;
     text-transform: uppercase;
 }

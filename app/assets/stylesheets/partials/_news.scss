@@ -1,43 +1,72 @@
 .main-container.news_items.index {
-    .row {
-        margin: 0 auto;
-    }
-    background: $lightest_grey;
-    .news-feature {
-        font-size: 1.1em;
-        background: $white;
-        img {
-            width: 100%;
-        }
-    }
-    h2 {
-        border-top: 1px solid $lighter_grey;
-        border-bottom: 1px solid $lighter_grey;
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        margin: 30px 0;
-    }
-    li.news-date {
-        font-size: .8em;
-        padding-top: 10px;
-        text-transform: uppercase;
-        letter-spacing: .2em;
+	.row {
+		margin: 0 auto;
+	}
+	background: $lightest_grey;
+	.news-feature {
+		font-size: 1.2em;
+		background: $white;
+		margin-bottom: 10px;
+		@include blueboxshadow;
+		img {
+			width: 100%;
+		}
+	}
+	h2 {
+		border-top: 1px solid $lighter_grey;
+		border-bottom: 1px solid $lighter_grey;
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 20px 0;
+		margin: 30px 0;
+	}
+	li.news-date {
+		font-size: .8em;
+		padding-top: 10px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color: $dsi_blue_green;
 
-    }
-    li.news-title {
-        font-size: 1.3em;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-    }
-    .news-grid-item {
-        .news-item-inner {
-            background: $white;
-            margin: 10px;
-        }
-    }
-    .news-img-wrapper {
-        padding: 0;
+	}
+	li.news-title {
+		font-size: 1.2em;
+		padding-bottom: 10px;
+		text-transform: uppercase;
+	}
+	.news-grid-item {
+		.news-item-inner {
+			background: $white;
+			margin: 10px;
+		}
+	}
+	.news-img-wrapper {
+		padding: 0;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+@media (min-width: 545px) and (max-width: 991px) {
+	.news-text-wrapper {
+		min-height: 180px;
+	}
+}
+
+.main-container.news_items.show {
+    background: $lightest_grey;
+    z-index: 10;
+    padding: 30px 0;
+	header {
+        z-index: 100;
+		overflow: hidden;
+		position:relative;
+	}
+    #page-content {
+      background: $white;
+      padding: 30px;
+      margin-top: 30px;
+      max-width: 600px;
     }
 }

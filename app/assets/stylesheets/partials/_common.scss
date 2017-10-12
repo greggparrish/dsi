@@ -14,7 +14,6 @@ nav.pagination {
   border-bottom: 1px solid $lighter_grey;
   width: 100%;
   padding: 20px 0;
-  margin: 30px 0;
   display: block;
   border-radius: 0;
   text-align: center;
@@ -50,10 +49,8 @@ textarea:focus, input:focus, button:focus{  outline: none;}
 .container.no-header {
   padding-top: 100px;
 }
-.main-container {
-  .container {
-    margin-top: 30px;
-  }
+#page-content {
+    padding: 30px 0;
 }
 ul.list-justified {
   @include centerobj;

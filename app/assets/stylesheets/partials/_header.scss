@@ -1,64 +1,91 @@
 header {
-  min-height: 300px;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  @include background-cover;
-  &.masthead {
-    text-align: center;
-    color: white;
-    background-image: url('https://unsplash.it/1920/1200');
-    .intro-text {
-      padding-top: 100px;
-      padding-bottom: 50px;
-      .intro-lead-in {
-        font-size: 2em;
-        font-style: italic;
-        line-height: 22px;
-        margin-bottom: 25px;
-      }
-      .intro-heading {
-        font-size: 3em;
-        font-weight: 700;
-        line-height: 50px;
-        margin-bottom: 25px;
-      }
-    }
-  }
-  @media(min-width:768px) {
-    header.masthead {
-      .intro-text {
-        padding-top: 300px;
-        padding-bottom: 200px;
-        .intro-lead-in {
-          font-size: 3em;
-          line-height: 40px;
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    overflow: hidden;
+    @include background-cover;
+    z-index: -10;
+    &.masthead {
+        margin-bottom: 0;
+        text-align: center;
+        color: white;
+        background-image: url('https://unsplash.it/1920/1200');
+        .intro-text {
+            padding-top: 100px;
+            padding-bottom: 50px;
+            .intro-lead-in {
+                font-size: 2em;
+                font-style: italic;
+                line-height: 22px;
+                margin-bottom: 25px;
+            }
+            .intro-heading {
+                font-size: 3em;
+                font-weight: 700;
+                line-height: 50px;
+                margin-bottom: 25px;
+            }
         }
-        .intro-heading {
-          font-size: 5em;
-          line-height: 75px;
-          margin-bottom: 50px;
-        }
-      }
     }
-  }
+    &.blur {
+        .blur {
+            background-size: 110%;
+            background-position: center center;
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(3px);
+        }
+        &::after {
+            z-index: -1;
+            display: block;
+            position: relative;
+            background-image: linear-gradient(to bottom, transparent 0%, #000 100%);
+            margin-top: -150px;
+            height: 150px;
+            width: 100%;
+            content: '';
+        }
+
+    }
+    @media(min-width:768px) {
+        header.masthead {
+            .intro-text {
+                padding-top: 300px;
+                padding-bottom: 200px;
+                .intro-lead-in {
+                    font-size: 3em;
+                    line-height: 40px;
+                }
+                .intro-heading {
+                    font-size: 5em;
+                    line-height: 75px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
 }
 
 // Headers for all pages except home and map
 .main-container.index, .main-container.show, .main-container.new, .main-container.create, .main-container.static.about {
-  header{
-    padding-top: 100px;
-    #dsi-redbox {
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 30px;
-      padding: 10px 0;
-      width: 300px;
-      .dmusic {
-        font-size: 1.5em;
-        border-top: 1px solid $white;
-        border-bottom: 1px solid $white;
-      }
+    header{
+        padding-top: 100px;
+        #dsi-redbox {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 30px;
+            padding: 10px 0;
+            width: 300px;
+            .dmusic {
+                font-size: 1.5em;
+                border-top: 1px solid $white;
+                border-bottom: 1px solid $white;
+            }
+        }
     }
-  }
 }
