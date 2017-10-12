@@ -1,11 +1,11 @@
 %header.blur
-  .blur{style: "background-image: url(#{@ni.image})"}
+  .blur{style: "background-image: url(#{@ni.image.rect_thumb})"}
   .container
     =render 'shared/redbox'
     .row
       .col-12.col-md-8
         %h1
-          News:
+          =link_to 'News:', news_items_path
           =@ni.title
         -if controller.action_name == 'index'
           %p= @header.text.html_safe

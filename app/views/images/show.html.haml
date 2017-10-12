@@ -1,6 +1,15 @@
-=render 'shared/header'
-.container
-  %h2= @image.title
+%header.blur
+  .blur{style: "background-image: url(#{@image.file.rect_thumb})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          =link_to 'IMAGE:', images_path
+          =@image.title
+        -if controller.action_name == 'index'
+          %p= @header.text.html_safe
+.container#page-content
   .row
     .col-12.col-md-6.push-md-6
       =image_tag @image.file, alt: @image.title, title: @image.title

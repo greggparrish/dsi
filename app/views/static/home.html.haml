@@ -50,16 +50,26 @@
             = link_to 'interactive map', map_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
 
-.dsi-panel.half-blue
+.dsi-panel.half-grey
   .container
     %section#timeline
       .row
-        .col-12.col-sm-6.col-md-3.text-box
+
+        .col-12.col-md-3.text-box
           %h1.orange
             =link_to 'timeline', timeline_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-        .col-12.col-sm-6.col-md-9
-          %p
+
+        .col-12.col-md-9.timeline-item
+          #cd-timeline
+            .cd-timeline-block{ id: "tl_#{@timeline.id}" }
+              .cd-timeline-img.cd-picture
+                =link_to (image_tag @timeline.image.sq_thumb), history_path(@timeline)
+              .cd-timeline-content
+                %h2
+                  =link_to @timeline.title, history_path(@timeline)
+                = @timeline.date.strftime("%B %-d, %Y")
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
 
 .dsi-panel.full-img(style="background-image: url(#{path_to_image('nyc_blur.jpg')})")
   %section#images

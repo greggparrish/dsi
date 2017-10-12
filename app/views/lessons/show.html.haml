@@ -1,9 +1,15 @@
-=render 'shared/header'
-.container
-  %h4= @lesson.title
-  %p.question= @lesson.question
-=image_tag @lesson.image
-.container
+%header.blur
+  .blur{style: "background-image: url(#{@lesson.image.rect_thumb})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          =link_to 'Lesson:', lessons_path
+          =@lesson.title
+.container#page-content
+  %h2.question= @lesson.question
+  =image_tag @lesson.image
   %h5 Introduction
   =@lesson.introduction.html_safe
   %h5 objectives
