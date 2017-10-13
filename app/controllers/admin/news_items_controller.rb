@@ -45,7 +45,7 @@ class Admin::NewsItemsController < Admin::ApplicationController
   def destroy
     @ni.destroy
     respond_to do |format|
-      format.html { redirect_to stories_url, notice: 'ni was successfully destroyed.' }
+      format.html { redirect_to admin_news_items_url, notice: 'ni was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -91,7 +91,7 @@
   %section#news
     .container
       %h1
-        = link_to 'News and events', news_items_path
+        = link_to 'News and events', news_index_path
       #carouselNews.carousel.slide{"data-ride" => "carousel", "data-interval" => '6000'}
         .carousel-inner{:role => "listbox"}
           -@news.each_with_index do |n,i|
@@ -100,7 +100,7 @@
               .col-12.col-sm-6
                 %ul.list-unstyled#news-slides
                   %li.news-title
-                    =link_to n.title, news_item_path(n)
+                    =link_to n.title, news_path(n)
                   %li= n.place
                   %li.news-date= n.date.strftime("%A, %B %-d, %Y")
               .col-12.col-sm-6

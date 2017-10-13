@@ -5,14 +5,30 @@
     .row
       .col-12.col-md-8
         %h1
-          =link_to 'News:', news_items_path
+          =link_to 'News:', news_index_path
           =@ni.title
         -if controller.action_name == 'index'
           %p= @header.text.html_safe
 .container#page-content
   .row
-    .col-12
-      %p= @ni.date.strftime("%B %-d, %Y")
-      %p= @ni.place
-      %span= @ni.description.html_safe
-
+    .col-12.col-lg-8.news-wrapper
+      .row
+        .col-12#news-image
+          =image_tag @ni.image.lg_rect, alt: @ni.title, title: @ni.title
+        .col-12#news-text
+          %ul.list-unstyled
+            %li.date= @ni.date.strftime("%B %-d, %Y")
+            %li.place= @ni.place
+            %li= @ni.description.html_safe
+    .col-12.col-lg-4.news-sidebar-wrapper
+      .row.inner
+        -@recent.each do |r|
+          -if r.id != @ni.id
+            .col-12
+              .col-12#news-image
+                =link_to image_tag(r.image.rect_thumb, alt: r.title, title: r.title), news_path(r)
+              .col-12#news-text
+                %ul.list-unstyled
+                  %li.date= r.date.strftime("%B %-d, %Y")
+                  %li
+                    %h2= link_to r.title, news_path(r)
