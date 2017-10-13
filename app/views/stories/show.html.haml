@@ -7,7 +7,7 @@
         %h1
           =link_to 'STORY:', stories_path
           =@story.name
-.container
+.container#page-content
   .row
     .col-12.story-card
       .row
@@ -15,4 +15,19 @@
           %h2.story-place= @story.place
           %p.text= @story.story_text.html_safe
         .col-12.col-md-6.story-img
-          = image_tag @story.image
+          = image_tag @story.image.lg_square
+  %h2.add_story
+    =link_to 'add your story', new_story_path
+  .row
+    -@more.each do |m|
+      .col-12.col-sm-6.col-md-3.story-wrapper
+        .col-12.story-image
+          =link_to (image_tag m.image.sq_thumb, alt: m.name), story_path(m)
+        .col-12.story-text
+          .inner
+            %ul.list-unstyled
+              %li
+                %h2
+                  =link_to m.name, story_path(m)
+              %li.place= m.place
+              %li= truncate(m.story_text, length: 100, escape: false)

@@ -1,11 +1,4 @@
-%header.blur
-  .blur{style: "background-image: url(#{@header.image})"}
-  .container
-    =render 'shared/redbox'
-    .row
-      .col-12.col-md-8
-        %h1= @header.title
-        %p= @header.text.html_safe
+=render 'shared/header'
 .container#page-content
   .row
     -@lessons.each do |l|

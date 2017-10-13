@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
 
   def index
-    @genres = Genre.all
+      @genres = Genre.all.order('title ASC')
     authorize @genres
   end
 

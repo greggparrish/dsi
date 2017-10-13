@@ -10,3 +10,46 @@ ul#genre-nav {
         @include centerobj;
     }
 }
+#genre-download {
+    text-align: right;
+    a {
+        color: $white;
+        &:hover {
+            color: $dsi_red;
+        }
+    }
+}
+
+.main-container.genres {
+    background: $dark_grey;
+    #page-content{
+        .genre-wrapper {
+            @include blackboxshadow;
+            background: $white;
+            margin-bottom: 20px;
+            #genre-text {
+                padding: 20px 20px 10px 20px;
+            }
+            #genre-image {
+                padding: 0;
+                margin: 0;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .genre-media-wrapper {
+            padding: 0;
+            .playlist {
+                .inner {
+                    @media only screen and (min-width: 992px) {
+                        margin:  0 10px;
+                    }
+                    iframe {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

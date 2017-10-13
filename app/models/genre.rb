@@ -2,11 +2,11 @@
 #
 # Table name: genres
 #
-#  audio       :string
 #  created_at  :datetime         not null
 #  description :text
 #  id          :integer          not null, primary key
 #  image       :string
+#  playlist_id :string
 #  slug        :string
 #  title       :string
 #  updated_at  :datetime         not null

@@ -14,7 +14,7 @@
 #
 
 class Header < ApplicationRecord
-  mount_uploader :image, HeadersUploader
+  mount_uploader :image, ImagesUploader
   mount_uploader :guide, PdfUploader
   validates :image, presence: true
 end

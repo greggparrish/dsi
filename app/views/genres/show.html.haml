@@ -1,15 +1,22 @@
-=render 'shared/header'
-.container
-  %h4= @genre.title
+%header.blur
+  .blur{style: "background-image: url(#{@genre.image.rect_thumb})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          =link_to 'GENRE:', genres_path
+          =@genre.title
+.container#page-content
   .row
-    .col-12.col-md-6.push-md-6
-      =image_tag @genre.image
-    .col-12.col-md-6.pull-md-6
-      %ul.list-unstyled
-        %li.list-inline-item= @genre.description.html_safe
-      %ul.list-justified
-        %li= link_to "View on Youtube", @genre.audio, {class: 'embedLink', 'data-toggle': 'modal', 'data-target': "#videoEmbed"}
-        %li= link_to "Listen to Sample Audio", root_path
-  #genre-media
-    %p MEDIA PANEL
-=render '/shared/videomodal'
+    .col-12.col-lg-6.genre-wrapper
+      .row
+        .col-12#genre-image
+          =image_tag @genre.image.rect_thumb, alt:@genre.title, title: @genre.title
+        .col-12#genre-text
+          %ul.list-unstyled
+            %li.list-inline-item= @genre.description.html_safe
+    .col-12.col-lg-6.genre-media-wrapper
+      .playlist
+        .inner
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "405", :src => "https://www.youtube.com/embed/videoseries?list=#{@genre.playlist_id}&showinfo=1", :width => "720"}

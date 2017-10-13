@@ -14,7 +14,9 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @more = Story.all.order("RANDOM()").limit(4)
     authorize @story
+    authorize @more
   end
 
   def new

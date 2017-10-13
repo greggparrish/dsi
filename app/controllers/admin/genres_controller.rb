@@ -58,7 +58,7 @@ class Admin::GenresController < Admin::ApplicationController
     end
 
     def genre_params
-      params.require(:genre).permit(:audio,:description,:image,:title)
+      params.require(:genre).permit(:playlist_id,:description,:image,:title)
     end
 end
 

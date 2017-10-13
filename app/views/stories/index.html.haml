@@ -2,17 +2,18 @@
 .container#page-content
   .row
     .col-12
-      -flash.each do |key, value|
-        .flash(class=key)= value
       %h2.add_story
         =link_to 'add your story', new_story_path
     - @stories.each do |story|
-      .col-12.col-sm-6.col-md-3
-        .col-12
+      .col-12.col-sm-6.col-md-3.story-wrapper
+        .col-12.story-image
           =link_to (image_tag story.image.sq_thumb, alt: story.name), story_path(story)
-        .col-12
-          %ul.list-unstyled
-            %li= story.name
-            %li= story.place
-            %li= truncate(story.story_text, length: 100, escape: false)
+        .col-12.story-text
+          .inner
+            %ul.list-unstyled
+              %li
+                %h2
+                  =link_to story.name, story_path(story)
+              %li.place= story.place
+              %li= truncate(story.story_text, length: 100, escape: false)
   = paginate @stories
