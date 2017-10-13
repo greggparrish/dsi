@@ -1,9 +1,18 @@
-=render 'shared/header'
+%header.blur
+  .blur{style: "background-image: url(#{@story.image.rect_thumb})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          =link_to 'STORY:', stories_path
+          =@story.name
 .container
   .row
-    .col-12.col-md-6.pull-right
-      = image_tag @story.image
-    .col-12.col-md-6.pull-left
-      %h2= @story.name
-      %p.story-place= @story.place
-      %p.text= @story.story_text.html_safe
+    .col-12.story-card
+      .row
+        .col-12.col-md-6.story-text
+          %h2.story-place= @story.place
+          %p.text= @story.story_text.html_safe
+        .col-12.col-md-6.story-img
+          = image_tag @story.image

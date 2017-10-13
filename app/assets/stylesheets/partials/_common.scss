@@ -1,61 +1,64 @@
 body {
-  font: 100 16px $bodytext;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100%;
-  line-height: 1.5em;
+    font: 100 16px $bodytext;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    line-height: 1.5em;
 }
 img {
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 nav.pagination {
-  border-top: 1px solid $lighter_grey;
-  border-bottom: 1px solid $lighter_grey;
-  width: 100%;
-  padding: 20px 0;
-  display: block;
-  border-radius: 0;
-  text-align: center;
-  span {
-    padding: 0 10px;
-  }
+    border-top: 1px solid $lighter_grey;
+    border-bottom: 1px solid $lighter_grey;
+    width: 100%;
+    padding: 20px 0;
+    display: block;
+    border-radius: 0;
+    text-align: center;
+    span {
+        padding: 0 10px;
+    }
 }
 
 /* rm light blue border around active buttons & inputs */
 textarea:focus, input:focus, button:focus{  outline: none;}
 
 #dsi-redbox {
-  background-color: $dsi_red_trans;
-  margin: 0 auto;
-  max-width: 500px;
-  text-align: center;
-  width: 100%;
-  color: $white;
-  .dmusic {
-    text-transform: uppercase;
-    font: 700 3em $dsi_logo;
-    letter-spacing: 3px;
-    border-top: 3px solid $white;
-    border-bottom: 3px solid $white;
-    display: inline-block;
-    padding: 5px 0;
-    margin: 10px 0;
-  }
-  .us {
-    text-transform: uppercase;
-  }
+    background-color: $dsi_red_trans;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    width: 300px;
+    text-align: center;
+    color: $white;
+    .dmusic {
+        font-size: 1.5em;
+        border-top: 1px solid $white;
+        border-bottom: 1px solid $white;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 5px 0;
+        margin: 10px 0;
+    }
+    .us {
+        text-transform: uppercase;
+    }
 }
+
+
 .container.no-header {
-  padding-top: 100px;
+    padding-top: 100px;
 }
 #page-content {
     padding: 30px 0;
 }
 ul.list-justified {
-  @include centerobj;
-  width: 90%;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
+    @include centerobj;
+    width: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
 }

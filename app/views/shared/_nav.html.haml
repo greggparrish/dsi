@@ -18,5 +18,20 @@
           %li
             = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: 'nav-link'
           -if current_user.admin?
-            %li.admin.nav-link
-              = link_to "ADMIN", admin_root_path
+            %li.nav-item.dropdown.admin
+              %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+                ADMIN
+              .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+                =link_to "DASHBOARD", admin_root_path, class: 'dropdown-item'
+                =link_to "GENRES", admin_genres_path, class: 'dropdown-item'
+                =link_to "HISTORY", admin_histories_path, class: 'dropdown-item'
+                =link_to "IMAGES", admin_images_path, class: 'dropdown-item'
+                =link_to "LESSONS", admin_lessons_path, class: 'dropdown-item'
+                =link_to "STORIES", admin_stories_path, class: 'dropdown-item'
+                =link_to "NEWS", admin_news_items_path, class: 'dropdown-item'
+                =link_to "USERS", admin_users_path, class: 'dropdown-item'
+
+
+
+
+

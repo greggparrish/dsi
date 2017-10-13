@@ -14,7 +14,6 @@
           -if not @history.exclude_from_timeline
             =link_to 'Timeline', "/timeline#tl_#{@history.id}"
           -if not @history.exclude_from_timeline and not @history.exclude_from_map
-            t
             |
           -if not @history.exclude_from_map
             =link_to 'Map', "/map#m_#{@history.id}"

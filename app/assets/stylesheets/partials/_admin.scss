@@ -83,5 +83,15 @@
     }
   }
 }
-
-
+li.dropdown.admin {
+  .dropdown-menu {
+    background: $dsi_grey_trans;
+    border: 0;
+    .dropdown-item {
+        &:hover {
+          background: $dark_grey;
+          color: $lightest_grey;
+        }
+    }
+  }
+}

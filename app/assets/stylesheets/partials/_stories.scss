@@ -1,8 +1,20 @@
 .main-container.stories {
     &.show {
+        background: $lightest_grey;
         @include prefootpadding;
-        img {
-          padding-bottom: 30px;
+        .story-card {
+            margin: 30px 0;
+            background: $white;
+            .story-text {
+                padding: 30px;
+            }
+            .story-img {
+                padding: 0;
+                margin: 0;
+                img {
+                    width: 100%
+                }
+            }
         }
     }
     h2.add_story {

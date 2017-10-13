@@ -1,37 +1,39 @@
 header {
+    padding-top: 100px;
     min-height: 300px;
     background-repeat: no-repeat;
-    background-attachment: scroll;
     background-position: center center;
     overflow: hidden;
-    @include background-cover;
     z-index: -10;
+    color: $white;
+    @include background-cover;
     &.masthead {
         margin-bottom: 0;
-        text-align: center;
-        color: white;
-        background-image: url('https://unsplash.it/1920/1200');
-        .intro-text {
-            padding-top: 100px;
-            padding-bottom: 50px;
-            .intro-lead-in {
-                font-size: 2em;
-                font-style: italic;
-                line-height: 22px;
-                margin-bottom: 25px;
-            }
-            .intro-heading {
-                font-size: 3em;
-                font-weight: 700;
-                line-height: 50px;
-                margin-bottom: 25px;
+        #dsi-redbox {
+            margin: 0 auto;
+            max-width: 500px;
+            text-align: center;
+            width: 100%;
+            color: $white;
+            .dmusic {
+                font: 700 2em $dsi_logo;
+                @media only screen and (min-width: 451px) {
+                  font: 700 3em $dsi_logo;
+                }
+                letter-spacing: 3px;
+                border-top: 3px solid $white;
+                border-bottom: 3px solid $white;
             }
         }
     }
     &.blur {
+        z-index: 100;
+        overflow: hidden;
+        position:relative;
         .blur {
             background-size: 110%;
             background-position: center center;
+            background-repeat: no-repeat;
             z-index: -1;
             position: absolute;
             left: 0;
@@ -71,21 +73,3 @@ header {
     }
 }
 
-// Headers for all pages except home and map
-.main-container.index, .main-container.show, .main-container.new, .main-container.create, .main-container.static.about {
-    header{
-        padding-top: 100px;
-        #dsi-redbox {
-            margin-left: 0;
-            margin-right: 0;
-            margin-bottom: 30px;
-            padding: 10px 0;
-            width: 300px;
-            .dmusic {
-                font-size: 1.5em;
-                border-top: 1px solid $white;
-                border-bottom: 1px solid $white;
-            }
-        }
-    }
-}

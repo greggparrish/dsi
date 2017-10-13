@@ -11,9 +11,12 @@
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
-    &.white, &.half-blue {
+    &.white, &.half-grey {
         background-color: $white;
         color: $dsi_grey;
+    }
+    &.half-grey {
+        background-color: $lightest_grey;
     }
     &.bb {
         background-color: $dsi_baby_blue;
