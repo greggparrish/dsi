@@ -12,10 +12,10 @@
       %ul.list-unstyled
         %li
           -if not @history.exclude_from_timeline
-            =link_to 'Timeline', "/timeline#tl_#{@history.id}"
+            =tl_link(@history)
           -if not @history.exclude_from_timeline and not @history.exclude_from_map
             |
           -if not @history.exclude_from_map
-            =link_to 'Map', "/map#m_#{@history.id}"
+            =link_to 'Map', map_path(anchor: "m_#{@history.id}")
         %li= @history.description.html_safe
 

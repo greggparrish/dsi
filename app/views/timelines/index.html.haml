@@ -2,25 +2,16 @@
 .dsi-panel.bb
   .container
     %section#overview
-      %h1 browse specific eras
-    %p Choose a specific era below
+      %h1 browse eras
+    %p Choose an era below
     .row#era-list-container
       %ul.inline-list.era-list
         %li.list-inline-item
-          =link_to '1920s-1940s', '#40s'
+          =link_to '1920s-1950s', timeline_path(era: '20s_50s')
         %li.list-inline-item
-          =link_to '1950s', '#50s'
+          =link_to '1960s-1980s', timeline_path(era: '60s_80s')
         %li.list-inline-item
-          =link_to '1960s', '#60s'
-        %li.list-inline-item
-          =link_to '1970s', '#70s'
-        %li.list-inline-item
-          =link_to '1980s', '#80s'
-        %li.list-inline-item
-          =link_to '1990s', '#90s'
-        %li.list-inline-item
-          =link_to '2000s', '#00s'
-
+          =link_to '1990s-Present', timeline_path(era: '90s_present')
 
 %section#cd-timeline.cd-container
   -@timeline.each do |t|
