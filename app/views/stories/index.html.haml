@@ -1,19 +1,14 @@
 =render 'shared/header'
 .container#page-content
-  .row
-    .col-12
-      %h2.add_story
-        =link_to 'add your story', new_story_path
-    - @stories.each do |story|
-      .col-12.col-sm-6.col-md-3.story-wrapper
-        .col-12.story-image
-          =link_to (image_tag story.image.sq_thumb, alt: story.name), story_path(story)
-        .col-12.story-text
-          .inner
-            %ul.list-unstyled
-              %li
-                %h2
-                  =link_to story.name, story_path(story)
-              %li.place= story.place
-              %li= truncate(story.story_text, length: 100, escape: false)
+  #storygrid
+    -@stories.each do |story|
+      .grid-item
+        =link_to (image_tag story.image.sq_thumb, alt: story.name), story_path(story)
+        %ul.list-unstyled.story-text
+          %li
+            %h2
+              =link_to story.name, story_path(story)
+          %li.place= story.place
+          %li= truncate(story.story_text, length: 100, escape: false)
+  .clearfix
   = paginate @stories

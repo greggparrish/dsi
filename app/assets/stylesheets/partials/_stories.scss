@@ -19,6 +19,34 @@
     }
     &.index {
         background: $lightest_grey;
+        #storygrid {
+            width: 100%;
+            column-count: 1;
+            column-gap: 20px;
+            padding: 20px;
+            text-align: center;
+            .grid-item {
+                background-color: $white;
+                margin: 0 0 1em;
+                width: 100%;
+                display: inline-block;
+                img {
+                    width: 100%;
+                }
+                .story-text {
+                    padding: 5%;
+                }
+            }
+            @media only screen and (min-width: 767px) {
+                column-count: 2;
+            }
+            @media only screen and (min-width: 992px) {
+                column-count: 3;
+            }
+            @media only screen and (min-width: 1200px) {
+                column-count: 4;
+            }
+        }
     }
     .story-wrapper {
         margin-bottom: 30px;
@@ -63,3 +91,5 @@
         }
     }
 }
+
+
