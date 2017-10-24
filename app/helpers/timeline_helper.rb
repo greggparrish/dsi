@@ -8,7 +8,6 @@ module TimelineHelper
     else
       era = '90s_present'
     end
-    link_to 'Timeline', timeline_path(era: era, anchor: "tl_#{t.id}")
+    return {era: era, anchor: "tl_#{t.id}"}
   end
 end
-

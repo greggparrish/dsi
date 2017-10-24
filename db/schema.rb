@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013110718) do
+ActiveRecord::Schema.define(version: 20171024115842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,17 +65,17 @@ ActiveRecord::Schema.define(version: 20171013110718) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "title"
-    t.string   "image"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "slug"
     t.string   "playlist_id"
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_genres_on_image_id", using: :btree
     t.index ["slug"], name: "index_genres_on_slug", unique: true, using: :btree
   end
 
   create_table "headers", force: :cascade do |t|
-    t.string   "image"
     t.string   "title"
     t.text     "text"
     t.string   "guide"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20171013110718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "modelname"
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_headers_on_image_id", using: :btree
   end
 
   create_table "histories", force: :cascade do |t|
@@ -93,11 +95,12 @@ ActiveRecord::Schema.define(version: 20171013110718) do
     t.string   "slug"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-    t.string   "image"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "exclude_from_map",      default: false
     t.boolean  "exclude_from_timeline", default: false
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_histories_on_image_id", using: :btree
     t.index ["slug"], name: "index_histories_on_slug", unique: true, using: :btree
   end
 
@@ -115,7 +118,6 @@ ActiveRecord::Schema.define(version: 20171013110718) do
     t.string   "title"
     t.string   "question"
     t.text     "introduction"
-    t.string   "image"
     t.text     "objectives"
     t.text     "activities"
     t.text     "assessment"
@@ -123,6 +125,8 @@ ActiveRecord::Schema.define(version: 20171013110718) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "slug"
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_lessons_on_image_id", using: :btree
   end
 
   create_table "news_items", force: :cascade do |t|
@@ -168,4 +172,8 @@ ActiveRecord::Schema.define(version: 20171013110718) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "genres", "images"
+  add_foreign_key "headers", "images"
+  add_foreign_key "histories", "images"
+  add_foreign_key "lessons", "images"
 end

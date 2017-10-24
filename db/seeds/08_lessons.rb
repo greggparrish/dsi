@@ -6,7 +6,7 @@ if Lesson.count < 5 and Rails.env == 'development'
       introduction: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
       objectives: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
       assessment: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
-      image: File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample),
+      image_id: Image.order("Random()").first.id,
       activities: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
       standards: Faker::Lorem.paragraphs(rand(6..10)).map{|pr| "<p>#{pr}</p>"}.join,
     ]

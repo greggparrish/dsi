@@ -28,9 +28,9 @@
       .col-12.form-group
         .row
           .col-6
-            = f.input :image
+            = f.association :image
           .col-6
-            = image_tag(f.object.image.sq_thumb) if f.object.image?
+            = image_tag(@history.image.file.sm_sq) if @history.image_id?
       .col-12.form-group
         = f.input :description, as: :ckeditor
       .col-12.form-group

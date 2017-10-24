@@ -45,7 +45,7 @@ class Admin::HistoriesController < Admin::ApplicationController
   def destroy
     @history.destroy
     respond_to do |format|
-      format.html { redirect_to stories_url, notice: 'history was successfully destroyed.' }
+      format.html { redirect_to admin_stories_url, notice: 'history was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -57,6 +57,6 @@ class Admin::HistoriesController < Admin::ApplicationController
     end
 
     def history_params
-      params.require(:history).permit(:image, :title, :date, :description, :media)
+      params.require(:history).permit(:image_id, :title, :date, :description, :media)
     end
 end

@@ -8,7 +8,7 @@
 #  exclude_from_map      :boolean          default(FALSE)
 #  exclude_from_timeline :boolean          default(FALSE)
 #  id                    :integer          not null, primary key
-#  image                 :string
+#  image_id              :integer
 #  latitude              :float
 #  longitude             :float
 #  media                 :string
@@ -18,20 +18,25 @@
 #
 # Indexes
 #
-#  index_histories_on_slug  (slug) UNIQUE
+#  index_histories_on_image_id  (image_id)
+#  index_histories_on_slug      (slug) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (image_id => images.id)
 #
 
 class History < ApplicationRecord
   extend FriendlyId
   has_one :header
+  belongs_to :image
   validates :title, :description, presence: true
   accepts_nested_attributes_for :header
-	friendly_id :slug_candidates, use: :slugged
-  mount_uploader :image, ImagesUploader
-	def slug_candidates
-		[
-			:title,
-			[:title, :id]
-		]
-	end
+  friendly_id :slug_candidates, use: :slugged
+  def slug_candidates
+      [
+        :title,
+        [:title, :id]
+      ]
+  end
 end

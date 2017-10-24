@@ -1,7 +1,7 @@
 .col-12
   = simple_form_for [:admin, @header] do |f|
     .col-12.form-group
-      = f.input :image
+      = f.association :image
     .col-12.form-group
       = f.input :title
     .col-12.form-group

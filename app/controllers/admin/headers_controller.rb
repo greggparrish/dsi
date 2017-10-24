@@ -48,7 +48,7 @@ class Admin::HeadersController < Admin::ApplicationController
   private
 
     def header_params
-      params.require(:header).permit(:guide,:guide_text,:image,:modelname,:text,:title)
+      params.require(:header).permit(:guide,:guide_text,:image_id,:modelname,:text,:title)
     end
 
 end

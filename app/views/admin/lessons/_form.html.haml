@@ -1,28 +1,34 @@
-- if @image.errors.any?
+- if @lesson.errors.any?
   #error_explanation
     %h2
-      = pluralize(@image.errors.count, "error")
+      = pluralize(@lesson.errors.count, "error")
       prohibited this image from being saved:
     %ul
-      - @image.errors.full_messages.each do |message|
+      - @lesson.errors.full_messages.each do |message|
         %li= message
 .form-wrapper#image-form
-  = simple_form_for [:admin, @image] do |f|
+  = simple_form_for [:admin, @lesson] do |f|
     .row
       .col-12.form-group
         .row
           .col-6
-            = f.input :file, label: false
+            = f.association :image, label: false
           .col-6
-            = image_tag(f.object.file.sq_thumb) if f.object.file?
+            = image_tag(@lesson.image.file.sm_sq) if @lesson.image_id?
       .col-12.form-group
-        = f.input :title
+        = f.input :question
       .col-12.form-group
-        = f.input :credit
+        = f.input :introduction, as: :ckeditor
       .col-12.form-group
-        = f.input :description, as: :ckeditor
+        = f.input :objectives, as: :ckeditor
+      .col-12.form-group
+        = f.input :activities, as: :ckeditor
+      .col-12.form-group
+        = f.input :assessment, as: :ckeditor
+      .col-12.form-group
+        = f.input :standards, as: :ckeditor
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
-      -unless @image.new_record?
+      -unless @lesson.new_record?
         .col-12.col-sm-6.form-group
-          = link_to 'Delete', admin_image_path(@image), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'
+          = link_to 'Delete', admin_image_path(@lesson), method: :delete, data: { confirm: 'Are you sure?'  }, class: 'btn btn-danger'

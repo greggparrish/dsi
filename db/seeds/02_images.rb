@@ -1,5 +1,5 @@
 if Image.count < 10 and Rails.env == 'development'
-  100.times do
+  200.times do
     Image.create! [
       title: Faker::Book.title,
       credit: Faker::Name.name,

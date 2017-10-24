@@ -37,7 +37,7 @@
           -if n != 0
             -hideclass = 'hidden-md-down'
           .col-12.col-sm-6.col-md-3{ class: "#{ hideclass }" }
-            =link_to image_tag(s.image.sq_thumb, alt: s.name), story_path(s)
+            =link_to image_tag(s.image.sm_sq, alt: s.name), story_path(s)
 
 .dsi-panel.bg
   .container
@@ -64,7 +64,7 @@
           #cd-timeline
             .cd-timeline-block{ id: "tl_#{@timeline.id}" }
               .cd-timeline-img.cd-picture
-                =link_to (image_tag @timeline.image.sq_thumb), history_path(@timeline)
+                =link_to (image_tag @timeline.image.file.sm_sq), history_path(@timeline)
               .cd-timeline-content
                 %h2
                   =link_to @timeline.title, history_path(@timeline)
@@ -85,7 +85,7 @@
           -else
             -hideclass = ' hidden-md-down'
           .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
-            =link_to image_tag(i.file.sq_thumb), image_path(i), alt: i.title, title: i.title
+            =link_to image_tag(i.file.sm_sq), image_path(i), alt: i.title, title: i.title
 
 .dsi-panel.bg
   %section#news

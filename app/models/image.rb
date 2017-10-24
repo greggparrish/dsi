@@ -14,8 +14,10 @@
 
 class Image < ApplicationRecord
   extend FriendlyId
-  has_one :header
-  accepts_nested_attributes_for :header
+  has_many :genres
+  has_many :lessons
+  has_many :histories
+  has_many :headers
   validates :title, :file,  presence: true
   mount_uploader :file, ImagesUploader
   friendly_id :title, use: :slugged

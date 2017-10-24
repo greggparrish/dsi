@@ -1,5 +1,5 @@
 %header.blur
-  .blur{style: "background-image: url(#{@ni.image.rect_thumb})"}
+  .blur{style: "background-image: url(#{@ni.image.sm_rect})"}
   .container
     =render 'shared/redbox'
     .row
@@ -26,7 +26,7 @@
           -if r.id != @ni.id
             .col-12
               .col-12#news-image
-                =link_to image_tag(r.image.rect_thumb, alt: r.title, title: r.title), news_path(r)
+                =link_to image_tag(r.image.sm_rect, alt: r.title, title: r.title), news_path(r)
               .col-12#news-text
                 %ul.list-unstyled
                   %li.date= r.date.strftime("%B %-d, %Y")

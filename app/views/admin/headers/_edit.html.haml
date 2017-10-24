@@ -1,7 +1,7 @@
 -if ! params['page']
   #edit-header.row
     .col-12.col-md-4.header-image
-      =image_tag @header.image.rect_thumb
+      =image_tag @header.image.file.sm_rect
     .col-12.col-md-8
       %p= @header.title
       %btn.btn-link#edit-header-btn EDIT HEADER

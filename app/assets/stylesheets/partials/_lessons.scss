@@ -4,7 +4,10 @@
 
     }
     &.show {
-
+        background: $lightest_grey;
+        #page-content {
+          background: $white;
+        }
     }
 }
 

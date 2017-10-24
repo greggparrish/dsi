@@ -6,7 +6,7 @@
       -if i == 0
         .news-feature.row
           .col-12.col-md-5.news-img-wrapper
-            =link_to image_tag(n.image.rect_thumb, alt: n.title, title: n.title), news_path(n)
+            =link_to image_tag(n.image.sm_rect, alt: n.title, title: n.title), news_path(n)
           .col-12.col-md-7
             %ul.list-unstyled
               %li.news-date= n.date.strftime("%B %-d, %Y")
@@ -20,7 +20,7 @@
         .col-12.col-sm-6.news-grid-item
           .row.news-item-inner
             .col-12.col-md-4.news-img-wrapper
-              =link_to image_tag(n.image.sq_thumb, alt: n.title, title: n.title), news_path(n)
+              =link_to image_tag(n.image.sm_sq, alt: n.title, title: n.title), news_path(n)
             .col-12.col-md-8.news-text-wrapper
               %ul.list-unstyled
                 %li.news-date= n.date.strftime("%B %-d, %Y")

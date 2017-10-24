@@ -14,7 +14,7 @@
           .col-6
             = f.input :file, label: false
           .col-6
-            = image_tag(f.object.file.sq_thumb) if f.object.file?
+            = image_tag(f.object.file.sm_sq) if f.object.file?
       .col-12.form-group
         = f.input :title
       .col-12.form-group

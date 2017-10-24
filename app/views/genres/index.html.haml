@@ -5,7 +5,7 @@
       .col-12.genre-wrapper
         .row
           .col-12.col-md-4.float-md-right#genre-image
-            =link_to (image_tag genre.image.rect_thumb, alt: genre.title, title: genre.title), genre_path(genre)
+            =link_to (image_tag genre.image.file.sm_rect, alt: genre.title, title: genre.title), genre_path(genre)
           .col-12.col-md-8.float-md-left#genre-text
             %ul.list-unstyled
               %li

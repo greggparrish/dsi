@@ -3,7 +3,7 @@
   #storygrid
     -@stories.each do |story|
       .grid-item
-        =link_to (image_tag story.image.sq_thumb, alt: story.name), story_path(story)
+        =link_to (image_tag story.image.sm_sq, alt: story.name), story_path(story)
         %ul.list-unstyled.story-text
           %li
             %h2

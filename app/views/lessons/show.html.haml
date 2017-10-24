@@ -1,5 +1,5 @@
 %header.blur
-  .blur{style: "background-image: url(#{@lesson.image.rect_thumb})"}
+  .blur{style: "background-image: url(#{@lesson.image.file.sm_rect})"}
   .container
     =render 'shared/redbox'
     .row
@@ -8,15 +8,19 @@
           =link_to 'Lesson:', lessons_path
           =@lesson.title
 .container#page-content
-  %h2.question= @lesson.question
-  =image_tag @lesson.image
-  %h5 Introduction
-  =@lesson.introduction.html_safe
-  %h5 objectives
-  =@lesson.objectives.html_safe
-  %h5 Activities
-  =@lesson.activities.html_safe
-  %h5 Assessment
-  =@lesson.assessment.html_safe
-  %h5 Standards
-  =@lesson.standards.html_safe
+  .row
+    .col-12
+      =image_tag @lesson.image.file.lg_rect
+    .col-12.col-md-6.pull-md-6
+      %h5 Introduction
+      %h2.question= @lesson.question
+      =@lesson.introduction.html_safe
+    .col-12
+      %h5 objectives
+      =@lesson.objectives.html_safe
+      %h5 Activities
+      =@lesson.activities.html_safe
+      %h5 Assessment
+      =@lesson.assessment.html_safe
+      %h5 Standards
+      =@lesson.standards.html_safe

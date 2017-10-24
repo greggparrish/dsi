@@ -1,5 +1,5 @@
 %header.blur
-  .blur{style: "background-image: url(#{@story.image.rect_thumb})"}
+  .blur{style: "background-image: url(#{@story.image.sm_rect})"}
   .container
     =render 'shared/redbox'
     .row
@@ -9,12 +9,12 @@
           =@story.name
 .container#page-content
   .row
-    .col-12.story-card
+    .col-12.whitecard
       .row
-        .col-12.col-md-6.story-text
+        .col-12.col-md-6.wc-text
           %h2.story-place= @story.place
           %p.text= @story.story_text.html_safe
-        .col-12.col-md-6.story-img
+        .col-12.col-md-6.wc-img
           = image_tag @story.image.lg_square
   %h2.add_story
     =link_to 'add your story', new_story_path
@@ -22,7 +22,7 @@
     -@more.each do |m|
       .col-12.col-sm-6.col-md-3.story-wrapper
         .col-12.story-image
-          =link_to (image_tag m.image.sq_thumb, alt: m.name), story_path(m)
+          =link_to (image_tag m.image.sm_sq, alt: m.name), story_path(m)
         .col-12.story-text
           .inner
             %ul.list-unstyled

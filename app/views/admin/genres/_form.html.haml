@@ -18,9 +18,9 @@
       .col-12.form-group
         .row
           .col-6
-            = f.input :image, label: false
+            = f.association :image, label: false
           .col-6
-            = image_tag(f.object.image.sq_thumb) if f.object.image?
+            =image_tag(@genre.image.file.sm_sq) if @genre.image_id?
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'
       -unless @genre.new_record?

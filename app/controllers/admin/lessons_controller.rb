@@ -37,7 +37,7 @@ class Admin::LessonsController < Admin::ApplicationController
 
   def destroy
     @lesson.destroy
-    redirect_to lessons_url, notice: 'Lesson was successfully destroyed.'
+    redirect_to admin_lessons_url, notice: 'Lesson was successfully destroyed.'
   end
 
   private
@@ -47,6 +47,6 @@ class Admin::LessonsController < Admin::ApplicationController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:title, :question, :introduction, :image, :objectives, :activities, :assessment, :standards)
+      params.require(:lesson).permit(:title, :question, :introduction, :image_id, :objectives, :activities, :assessment, :standards)
     end
 end

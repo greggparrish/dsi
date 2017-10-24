@@ -9,7 +9,7 @@ if Header.count == 0 and Rails.env == 'development'
 			modelname: c.singularize,
 			title: Faker::Lorem.sentence,
 			text: Faker::Lorem.paragraphs(rand(1..2)).map{|pr| "<p>#{pr}</p>"}.join,
-			image: File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample),
+            image_id: Image.order("Random()").first.id
 		]
 	end
 end

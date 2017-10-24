@@ -1,5 +1,5 @@
 %header.blur
-  .blur{style: "background-image: url(#{@genre.image.rect_thumb})"}
+  .blur{style: "background-image: url(#{@genre.image.file.sm_rect})"}
   .container
     =render 'shared/redbox'
     .row
@@ -12,7 +12,7 @@
     .col-12.col-lg-6.genre-wrapper
       .row
         .col-12#genre-image
-          =image_tag @genre.image.rect_thumb, alt:@genre.title, title: @genre.title
+          =image_tag @genre.image.file.sm_rect, alt:@genre.title, title: @genre.title
         .col-12#genre-text
           %ul.list-unstyled
             %li.list-inline-item= @genre.description.html_safe

@@ -1,4 +1,4 @@
 #infowindow
-  =link_to image_tag(object.image.rect_thumb), history_path(object)
+  =link_to image_tag(object.image.file.sm_rect), history_path(object)
   %h3
     =link_to object.title, history_path(object)

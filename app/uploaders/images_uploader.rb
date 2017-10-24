@@ -11,11 +11,11 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   # process scale: [200, 300]
-  version :sq_thumb do
+  version :sm_sq do
     process resize_to_fill: [350, 350]
   end
 
-  version :rect_thumb do
+  version :sm_rect do
     process resize_to_fill: [350, 175]
   end
 

@@ -46,7 +46,7 @@ class Admin::GenresController < Admin::ApplicationController
   def destroy
     @genre.destroy
     respond_to do |format|
-      format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
+      format.html { redirect_to admin_genres_url, notice: 'Genre was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -58,7 +58,7 @@ class Admin::GenresController < Admin::ApplicationController
     end
 
     def genre_params
-      params.require(:genre).permit(:playlist_id,:description,:image,:title)
+      params.require(:genre).permit(:playlist_id,:description,:image_id,:title)
     end
 end
 

@@ -1,21 +1,34 @@
-=render 'shared/header'
+%header.blur
+  .blur{style: "background-image: url(#{@history.image.file.sm_rect})"}
+  .container
+    =render 'shared/redbox'
+    .row
+      .col-12.col-md-8
+        %h1
+          HISTORY:
+          -if @history.date
+            (
+            %span.date= @history.date.strftime("%B %-d, %Y")
+            )
+          =@history.title
 .container
-  %h4
-    -if @history.date
-      %span.date= @history.date.strftime("%B %-d, %Y")
-      \:
-    =@history.title
   .row
-    .col-12.col-md-6.push-md-6
-      =image_tag @history.image
-    .col-12.col-md-6.pull-md-6
-      %ul.list-unstyled
-        %li
-          -if not @history.exclude_from_timeline
-            =tl_link(@history)
-          -if not @history.exclude_from_timeline and not @history.exclude_from_map
-            |
-          -if not @history.exclude_from_map
-            =link_to 'Map', map_path(anchor: "m_#{@history.id}")
-        %li= @history.description.html_safe
+    .col-12.whitecard
+      .row
+        .col-12.col-md-6.push-md-6.wc-img
+          =image_tag @history.image.file.lg_square, title: @history.title, alt: @history.title
+        .col-12.col-md-6.pull-md-6.wc-text
+          %ul.list-unstyled
+            %li
+              -if not @history.exclude_from_timeline
+                = link_to timeline_path(tl_link(@history)) do
+                  =fa_icon('clock-o')
+                  TIMELINE
+              -if not @history.exclude_from_timeline and not @history.exclude_from_map
+                |
+              -if not @history.exclude_from_map
+                =link_to map_path(anchor: "m_#{@history.id}") do
+                  MAP
+                  =fa_icon('map-o')
+            %li= @history.description.html_safe
 
