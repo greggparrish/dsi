@@ -9,9 +9,9 @@
           =@lesson.title
 .container#page-content
   .row
-    .col-12
+    .col-12.header-image
       =image_tag @lesson.image.file.lg_rect
-    .col-12.col-md-6.pull-md-6
+    .col-12
       %h5 Introduction
       %h2.question= @lesson.question
       =@lesson.introduction.html_safe

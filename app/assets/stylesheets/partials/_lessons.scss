@@ -6,7 +6,14 @@
     &.show {
         background: $lightest_grey;
         #page-content {
-          background: $white;
+            background: $white;
+            padding: 0;
+            margin-top: 30px;
+            .header-image {
+                img {
+                    width: 100%;
+                }
+            }
         }
     }
 }

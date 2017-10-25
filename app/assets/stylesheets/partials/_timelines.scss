@@ -178,7 +178,7 @@
             }
         }
     }
-    .cssanimations .cd-timeline-content {
+     .cd-timeline-content {
         &.is-hidden {
             visibility: hidden;
         }
@@ -197,7 +197,7 @@
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
     }
-    .cssanimations .cd-timeline-img {
+     .cd-timeline-img {
         &.is-hidden {
             visibility: hidden;
         }
@@ -268,7 +268,7 @@
     }
 }
 @media only screen and (min-width: 1170px) {
-    .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+     .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
         -webkit-animation: cd-bounce-2-inverse .6s;
         -moz-animation: cd-bounce-2-inverse .6s;
         animation: cd-bounce-2-inverse 0.6s;
