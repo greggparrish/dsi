@@ -28,7 +28,7 @@
       .col-12.form-group
         .row
           .col-6
-            = f.association :image
+            = f.association :image, collection: Image.order('title ASC')
           .col-6
             = image_tag(@history.image.file.sm_sq) if @history.image_id?
       .col-12.form-group

@@ -19,6 +19,8 @@
         = f.input :password
         = f.input :password_confirmation
       .col-12.form-group
+        %label.control-label Role
+        %br
         = f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})
       .col-12.col-sm-6.form-group
         = f.button :submit, class: 'btn-success'

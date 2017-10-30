@@ -12,7 +12,7 @@
       .col-12.form-group
         .row
           .col-6
-            = f.association :image, label: false
+            = f.association :image, collection: Image.order('title ASC')
           .col-6
             = image_tag(@lesson.image.file.sm_sq) if @lesson.image_id?
       .col-12.form-group

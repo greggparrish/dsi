@@ -18,7 +18,7 @@
       .col-12.form-group
         .row
           .col-6
-            = f.association :image, label: false
+            = f.association :image, collection: Image.order('title ASC')
           .col-6
             =image_tag(@genre.image.file.sm_sq) if @genre.image_id?
       .col-12.col-sm-6.form-group

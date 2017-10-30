@@ -1,12 +1,10 @@
 %h3
   HISTORY
-  ( SHOW:
-  =link_to 'MAP', map_path
-  |
-  =link_to 'TIMELINE', timeline_path
+  (
+  =link_to 'NEW', new_admin_history_path
   )
 .row
-  
+
   .col-12
     = render '/admin/headers/edit'
     %table.table.table-hover#news-table

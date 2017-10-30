@@ -11,6 +11,10 @@
 #  title       :string
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_images_on_title  (title) UNIQUE
+#
 
 class Image < ApplicationRecord
   extend FriendlyId
@@ -19,6 +23,14 @@ class Image < ApplicationRecord
   has_many :histories
   has_many :headers
   validates :title, :file,  presence: true
+  validates :title, uniqueness: true
   mount_uploader :file, ImagesUploader
-  friendly_id :title, use: :slugged
+  friendly_id :title_vars, use: :slugged
+
+  def title_vars
+      [
+          :title,
+          [:title, :id]
+      ]
+  end
 end
