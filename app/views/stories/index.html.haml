@@ -1,6 +1,16 @@
 =render 'shared/header'
 .container#page-content
   #storygrid
+    .grid-item
+      =link_to image_tag(path_to_image('flag_square.jpg')), new_story_path
+      %ul.list-unstyled.story-text
+        %li
+          %h2
+            =link_to 'ADD YOUR STORY', new_story_path
+        %li
+          %p
+            Iusto odit officia. In qui commodi.
+
     -@stories.each do |story|
       .grid-item
         =link_to (image_tag story.image.sm_sq, alt: story.name), story_path(story)

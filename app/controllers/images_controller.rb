@@ -14,7 +14,9 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.friendly.find(params[:id])
+    @more = Image.all.order("RANDOM()").limit(4)
     authorize @image
+    authorize @more
   end
 
 end

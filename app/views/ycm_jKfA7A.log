@@ -1,0 +1,15 @@
+2017-10-31 16:47:23,751 - ERROR - Unable to connect to server
+Traceback (most recent call last):
+  File "/home/ezra/.vim/plugged/YouCompleteMe/autoload/../python/ycm/client/base_request.py", line 214, in HandleServerException
+    yield
+  File "/home/ezra/.vim/plugged/YouCompleteMe/autoload/../python/ycm/youcompleteme.py", line 237, in CheckIfServerIsReady
+    'ready' )
+  File "/home/ezra/.vim/plugged/YouCompleteMe/autoload/../python/ycm/client/base_request.py", line 68, in GetDataFromHandler
+    timeout ) )
+  File "/home/ezra/.vim/plugged/YouCompleteMe/autoload/../python/ycm/client/base_request.py", line 180, in JsonFromFuture
+    response = future.result()
+  File "/home/ezra/.vim/plugged/YouCompleteMe/third_party/pythonfutures/concurrent/futures/_base.py", line 404, in result
+    return self.__get_result()
+  File "/home/ezra/.vim/plugged/YouCompleteMe/third_party/pythonfutures/concurrent/futures/_base.py", line 356, in __get_result
+    raise self._exception
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=57637): Max retries exceeded with url: /ready (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f994e697110>: Failed to establish a new connection: [Errno 111] Connection refused',))
