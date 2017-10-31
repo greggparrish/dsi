@@ -3,12 +3,11 @@
   .row
     - @genres.each do |genre|
       .col-12.genre-wrapper
-        .row
-          .col-12.col-md-4.float-md-right#genre-image
-            =link_to (image_tag genre.image.file.sm_rect, alt: genre.title, title: genre.title), genre_path(genre)
-          .col-12.col-md-8.float-md-left#genre-text
-            %ul.list-unstyled
-              %li
-                %h2
-                  = link_to genre.title, genre_path(genre)
-              %li= truncate(genre.description.html_safe, length: 250, escape: false)
+        .col-12.col-md-4.float-md-right#genre-image
+          =link_to (image_tag genre.image.file.sm_rect, alt: genre.title, title: genre.title), genre_path(genre)
+        .col-12.col-md-8.float-md-left#genre-text
+          %ul.list-unstyled
+            %li
+              %h2
+                = link_to genre.title, genre_path(genre)
+            %li= truncate(genre.description.html_safe, length: 250, escape: false)

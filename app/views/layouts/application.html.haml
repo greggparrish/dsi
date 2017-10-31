@@ -19,9 +19,9 @@
       = yield(:header)
     %div{class:"main-container #{controller_name} #{controller.action_name}"}
       = yield
-    = render 'shared/footer'
     -if user_signed_in? && current_user.admin?
       = render 'shared/admin_tools'
+    = render 'shared/footer'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = yield(:extra_js)
   %script{:crossorigin => "anonymous", :integrity => "sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", 'data-turbolinks-eval': false, :src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"}

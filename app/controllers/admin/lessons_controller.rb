@@ -42,7 +42,7 @@ class Admin::LessonsController < Admin::ApplicationController
 
   private
     def set_lesson
-      @lesson = Lesson.find(params[:id])
+        @lesson = Lesson.friendly.find(params[:id])
       authorize [:admin, @lesson]
     end
 

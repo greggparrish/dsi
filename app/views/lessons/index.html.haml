@@ -1,12 +1,17 @@
 =render 'shared/header'
 .container#page-content
   .row
-    -@lessons.each do |l|
-      .col-12.col-sm-6.col-md-3
-        .col-12
-          =link_to (image_tag l.image.file.sm_sq), lesson_path(l)
-        .col-12
-          %ul.list-unstyled
-            %li= l.title
+    -@lessons.each do |lesson|
+      .col-12.lesson-wrapper
+        .row
+          .col-12.col-md-4#lesson-image
+            =link_to (image_tag lesson.image.file.sm_rect, alt: lesson.title, title: lesson.title), lesson_path(lesson)
+          .col-12.col-md-8#lesson-text
+            %ul.list-unstyled
+              %li
+                %h2
+                  = link_to lesson.title, lesson_path(lesson)
+              %li.question= lesson.question.html_safe
+              %li= truncate(lesson.introduction.html_safe, length: 250, escape: false)
   = paginate @lessons
 

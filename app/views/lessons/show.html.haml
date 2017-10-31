@@ -11,16 +11,21 @@
   .row
     .col-12.header-image
       =image_tag @lesson.image.file.lg_rect
+    %section#introduction
+      .col-12
+        %h2.question= @lesson.question
+        %h5 Introduction
+        =@lesson.introduction.html_safe
     .col-12
-      %h5 Introduction
-      %h2.question= @lesson.question
-      =@lesson.introduction.html_safe
-    .col-12
-      %h5 objectives
-      =@lesson.objectives.html_safe
-      %h5 Activities
-      =@lesson.activities.html_safe
-      %h5 Assessment
-      =@lesson.assessment.html_safe
-      %h5 Standards
-      =@lesson.standards.html_safe
+      %section#objectives
+        %h5 objectives
+        =@lesson.objectives.html_safe
+      %section#activities
+        %h5 Activities
+        =@lesson.activities.html_safe
+      %section#assessment
+        %h5 Assessment
+        =@lesson.assessment.html_safe
+      %section#standards
+        %h5 Standards
+        =@lesson.standards.html_safe

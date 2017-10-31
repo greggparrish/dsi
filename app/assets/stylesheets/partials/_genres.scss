@@ -27,6 +27,8 @@ ul#genre-nav {
             @include blackboxshadow;
             background: $white;
             margin-bottom: 20px;
+            padding: 0;
+            overflow: hidden;
             #genre-text {
                 padding: 20px 20px 10px 20px;
             }
