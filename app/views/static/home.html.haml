@@ -33,11 +33,12 @@
           %h1.bb
             = link_to 'stories', stories_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-        -@stories.each_with_index do |s,n|
-          -if n != 0
-            -hideclass = 'hidden-md-down'
-          .col-12.col-sm-6.col-md-3{ class: "#{ hideclass }" }
-            =link_to image_tag(s.image.sm_sq, alt: s.name), story_path(s)
+        -if @stories.present?
+          -@stories.each_with_index do |s,n|
+            -if n != 0
+              -hideclass = 'hidden-md-down'
+            .col-12.col-sm-6.col-md-3{ class: "#{ hideclass }" }
+              =link_to image_tag(s.image.sm_sq, alt: s.name), story_path(s)
 
 .dsi-panel.bg
   .container
@@ -54,22 +55,21 @@
   .container
     %section#timeline
       .row
-
         .col-12.col-md-3.text-box
           %h1.orange
             =link_to 'timeline', timeline_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-
         .col-12.col-md-9.timeline-item
-          #cd-timeline
-            .cd-timeline-block{ id: "tl_#{@timeline.id}" }
-              .cd-timeline-img.cd-picture
-                =link_to (image_tag @timeline.image.file.sm_sq), history_path(@timeline)
-              .cd-timeline-content
-                %h2
-                  =link_to @timeline.title, history_path(@timeline)
-                = @timeline.date.strftime("%B %-d, %Y")
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+          -if @timeline.present?
+            #cd-timeline
+              .cd-timeline-block{ id: "tl_#{@timeline.id}" }
+                .cd-timeline-img.cd-picture
+                  =link_to (image_tag @timeline.image.file.sm_sq), history_path(@timeline)
+                .cd-timeline-content
+                  %h2
+                    =link_to @timeline.title, history_path(@timeline)
+                  = @timeline.date.strftime("%B %-d, %Y")
+                  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
 
 .dsi-panel.full-img(style="background-image: url(#{path_to_image('nyc_blur.jpg')})")
   %section#images
@@ -79,13 +79,14 @@
           %h1
             =link_to 'images from the archive', images_path
           %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id urna purus. Aenean dapibus sem ac sodales tristique. Sed id sem in urna commodo molestie. Vivamus elementum massa nibh, consectetur fringilla risus tincidunt eu. Cras consequat tincidunt maximus.
-        -@images.each_with_index do |i,n|
-          -if n == 0 or n == 1
-            -hideclass = ''
-          -else
-            -hideclass = ' hidden-md-down'
-          .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
-            =link_to image_tag(i.file.sm_sq), image_path(i), alt: i.title, title: i.title
+        -if @images.present?
+          -@images.each_with_index do |i,n|
+            -if n == 0 or n == 1
+              -hideclass = ''
+            -else
+              -hideclass = ' hidden-md-down'
+            .col-6.col-md-6.col-lg-2{ class: "#{ hideclass }" }
+              =link_to image_tag(i.file.sm_sq), image_path(i), alt: i.title, title: i.title
 
 .dsi-panel.bg
   %section#news
@@ -94,14 +95,15 @@
         = link_to 'News and events', news_index_path
       #carouselNews.carousel.slide{"data-ride" => "carousel", "data-interval" => '6000'}
         .carousel-inner{:role => "listbox"}
-          -@news.each_with_index do |n,i|
-          -slideclasses = i == 0 ? 'row carousel-item active' : 'row carousel-item'
-            %div{ class: "#{ slideclasses }" }
-              .col-12.col-sm-6
-                %ul.list-unstyled#news-slides
-                  %li.news-title
-                    =link_to n.title, news_path(n)
-                  %li= n.place
-                  %li.news-date= n.date.strftime("%A, %B %-d, %Y")
-              .col-12.col-sm-6
-                = truncate(n.description, escape: false, length: 300)
+          -if @news.present?
+            -@news.each_with_index do |n,i|
+            -slideclasses = i == 0 ? 'row carousel-item active' : 'row carousel-item'
+              %div{ class: "#{ slideclasses }" }
+                .col-12.col-sm-6
+                  %ul.list-unstyled#news-slides
+                    %li.news-title
+                      =link_to n.title, news_path(n)
+                    %li= n.place
+                    %li.news-date= n.date.strftime("%A, %B %-d, %Y")
+                .col-12.col-sm-6
+                  = truncate(n.description, escape: false, length: 300)

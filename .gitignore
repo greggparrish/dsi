@@ -1,6 +1,7 @@
 **.orig
 *.gz
 *.env
+.env.production
 *.log
 *.rbc
 *.sql

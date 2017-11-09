@@ -6,11 +6,11 @@
     %p Choose an era below
     .row#era-list-container
       %ul.inline-list.era-list
-        %li.list-inline-item
+        %li.list-inline-item{ class: ('active' if params[:era] == '20s_50s') }
           =link_to '1920s-1950s', timeline_path(era: '20s_50s')
-        %li.list-inline-item
+        %li.list-inline-item{ class: ('active' if params[:era] == '60s_80s') }
           =link_to '1960s-1980s', timeline_path(era: '60s_80s')
-        %li.list-inline-item
+        %li.list-inline-item{ class: ('active' if params[:era] == '90s_present') }
           =link_to '1990s-Present', timeline_path(era: '90s_present')
 
 %section#cd-timeline.cd-container
@@ -24,4 +24,4 @@
           =link_to t.title, history_path(t)
         %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
         .cd-date= t.date.strftime("%B %-d, %Y")
-
+  =link_to 'TOP', '#', { class: "back-to-top" }
