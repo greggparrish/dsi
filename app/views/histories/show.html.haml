@@ -20,6 +20,7 @@
         .col-12.col-md-6.pull-md-6.wc-text
           %ul.list-unstyled
             %li
+              VIEW ON:
               -if not @history.exclude_from_timeline
                 = link_to timeline_path(tl_link(@history)) do
                   =fa_icon('clock-o')
