@@ -32,4 +32,24 @@
                   MAP
                   =fa_icon('map-o')
             %li= @history.description.html_safe
+  .row
+    .col-12#more-images
+      %h2 MORE NEARBY
+      .row
+        -@nearby.each do |n|
+          .col-6.col-md-3
+            %h3= n.title
+            =link_to (image_tag n.image.file.sm_sq, alt: n.title), history_path(n)
+
+  .row
+    .col-12#more-time
+      %h2 SAME TIME
+      .row
+        -@same_time.each do |t|
+          %li
+            = t.date
+            = link_to t.title, history_path(t)
+
+
+
 

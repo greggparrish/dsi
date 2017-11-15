@@ -57,6 +57,6 @@ class Admin::HistoriesController < Admin::ApplicationController
     end
 
     def history_params
-      params.require(:history).permit(:image_id, :title, :date, :description, :media)
+      params.require(:history).permit(:image_id, :title, :date, :description, :media, :address)
     end
 end

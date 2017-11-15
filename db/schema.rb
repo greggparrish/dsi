@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030143256) do
+ActiveRecord::Schema.define(version: 20171115124838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171030143256) do
     t.boolean  "exclude_from_map",      default: false
     t.boolean  "exclude_from_timeline", default: false
     t.integer  "image_id"
+    t.string   "address"
     t.index ["image_id"], name: "index_histories_on_image_id", using: :btree
     t.index ["slug"], name: "index_histories_on_slug", unique: true, using: :btree
   end

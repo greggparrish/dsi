@@ -2,6 +2,7 @@
 #
 # Table name: histories
 #
+#  address               :string
 #  created_at            :datetime         not null
 #  date                  :date
 #  description           :text
@@ -32,6 +33,8 @@ class History < ApplicationRecord
   belongs_to :image
   validates :title, :description, presence: true
   accepts_nested_attributes_for :header
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
   friendly_id :slug_candidates, use: :slugged
   def slug_candidates
       [
