@@ -1,3 +1,5 @@
+-tl_era = params[:era].present? ? params[:era].gsub('_','-') : '20s - 50s'
+- provide(:title, "Timeline: #{tl_era}")
 =render 'shared/header'
 .dsi-panel.bb
   .container
