@@ -8,7 +8,7 @@
     %p Choose an era below
     .row#era-list-container
       %ul.inline-list.era-list
-        %li.list-inline-item{ class: ('active' if params[:era] == '20s_50s') }
+        %li.list-inline-item{ class: ('active' if params[:era] == '20s_50s' || 'active' if params[:era].blank?) }
           =link_to '1920s-1950s', timeline_path(era: '20s_50s')
         %li.list-inline-item{ class: ('active' if params[:era] == '60s_80s') }
           =link_to '1960s-1980s', timeline_path(era: '60s_80s')
