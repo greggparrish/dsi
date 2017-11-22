@@ -29,7 +29,7 @@
               -if not @history.exclude_from_timeline and not @history.exclude_from_map
                 |
               -if not @history.exclude_from_map
-                =link_to map_path(anchor: "m_#{@history.id}") do
+                =link_to map_path(mapmarker: "#{@history.id}") do
                   MAP
                   =fa_icon('map-o')
             %li= @history.description.html_safe

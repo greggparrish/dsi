@@ -7,11 +7,35 @@
   %script{src: "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" }
   =javascript_include_tag :mapstyle
   =javascript_tag do
-    handler = Gmaps.build('Google');
+    var historyObj = new URLSearchParams(window.location.search);
+    var handler = Gmaps.build('Google');
     handler.buildMap({ provider: { disableDefaultUI: true, styles: mapstyle }, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(13);
+    markers = #{raw @hash.to_json};
+    Gmaps.store = {} // Initialize storage
+
+    Gmaps.store.markers = markers.map(function(m) {
+    marker = handler.addMarker(m);
+    marker.serviceObject.set('id', m.id);
+    return marker;
     });
 
+    handler.bounds.extendWith(Gmaps.store.markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(13);
+
+    Gmaps.selectMarker = function(id) {
+    $.each(Gmaps.store.markers, function() {
+
+
+    if (this.serviceObject.id == id) {
+    google.maps.event.trigger(this.serviceObject, 'click')
+    }
+
+    });
+    }
+
+    if (historyObj.has('mapmarker')) {
+    mapItem = historyObj.get('mapmarker').replace(/\D/g,'');
+    Gmaps.selectMarker(mapItem);
+    }
+    });
