@@ -17,9 +17,9 @@
           %p.text= @story.story_text.html_safe
         .col-12.col-md-6.wc-img
           = image_tag @story.image.lg_square
-  %h2.add_story
+  %h2.add-story
     =link_to 'add your story', new_story_path
-  .row
+  .row#more-stories
     -@more.each do |m|
       .col-12.col-sm-6.col-md-3.story-wrapper
         .col-12.story-image
