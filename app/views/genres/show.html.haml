@@ -11,12 +11,13 @@
 .container#page-content
   .row
     .col-12.col-lg-6.genre-wrapper
-      .row
-        .col-12#genre-image
-          =image_tag @genre.image.file.sm_rect, alt:@genre.title, title: @genre.title
-        .col-12#genre-text
-          %ul.list-unstyled
-            %li.list-inline-item= @genre.description.html_safe
+      .container
+        .row
+          .col-12#genre-image
+            =image_tag @genre.image.file.sm_rect, alt:@genre.title, title: @genre.title
+          .col-12#genre-text
+            %ul.list-unstyled
+              %li.list-inline-item= @genre.description.html_safe
     .col-12.col-lg-6.genre-media-wrapper
       .playlist
         .inner

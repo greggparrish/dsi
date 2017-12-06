@@ -9,6 +9,7 @@
   text-align: center;
   background-color: $dsi_red;
   transition: all 0.8s ease;
+  z-index:1000;
   a {
     color: $white;
   }
@@ -21,6 +22,7 @@
 }
 #admin {
   padding-top: 80px;
+  overflow: auto;
   nav#admin-nav {
     li {
       padding: 10px 0;

@@ -21,11 +21,12 @@
       = @image.description.html_safe
   .row
     .col-12#more-images
-      %h2 MORE FROM OUR GALLERY
-      .row
-        -@more.each do |i|
-          .col-6.col-md-3
-            =link_to (image_tag i.file.sm_sq, alt: i.title), image_path(i)
+      .container
+        %h2 MORE FROM OUR GALLERY
+        .row
+          -@more.each do |i|
+            .col-6.col-md-3
+              =link_to (image_tag i.file.sm_sq, alt: i.title), image_path(i)
 
 
 

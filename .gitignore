@@ -10,8 +10,6 @@
 .env
 .rspec
 /config/
-/config/deploy.rb
-/config/deploy/
 /coverage/
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -27,6 +25,10 @@ capybara-*.html
 pickle-email-*.html
 uzbl.sh
 stations.csv
+
+
+config/database.yml
+public/assets
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 #config/initializers/secret_token.rb

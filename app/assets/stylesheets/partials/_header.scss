@@ -42,6 +42,7 @@ header {
             width: 110%;
             height: 110%;
             filter: blur(3px);
+            transform: scale(1.1);
         }
         &::after {
             z-index: -1;
