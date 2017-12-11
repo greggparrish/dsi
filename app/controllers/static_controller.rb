@@ -13,5 +13,13 @@ class StaticController < ApplicationController
     authorize :static, :about?
   end
 
+  def privacy
+    authorize :static, :privacy?
+  end
+
+  def terms
+    authorize :static, :terms?
+  end
+
 end
 

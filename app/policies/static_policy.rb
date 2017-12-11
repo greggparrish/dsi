@@ -12,6 +12,14 @@ class StaticPolicy < Struct.new(:user, :static)
     true
   end
 
+  def terms?
+    true
+  end
+
+  def privacy?
+    true
+  end
+
 end
 
 
