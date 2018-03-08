@@ -1,7 +1,7 @@
 class MapsController < ApplicationController
 
   def index
-    @maps = History.where(exclude_from_map: false).where.not(latitude: nil).where.not(longitude: nil)
+    @maps = History.includes(:image).where(exclude_from_map: false).where.not(latitude: nil).where.not(longitude: nil)
     authorize @maps
     @hash = Gmaps4rails.build_markers(@maps) do |map, marker|
       marker.infowindow render_to_string(partial: "/maps/infowindow", locals:  { object: map})
@@ -17,7 +17,7 @@ class MapsController < ApplicationController
   end
 
   def show
-    @map = History.friendly.find(params[:id])
+    @map = History.includes(:image).friendly.find(params[:id])
     authorize @map
   end
 

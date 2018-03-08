@@ -42,7 +42,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'guard', require: false
   gem 'guard-livereload', '~> 2.5'
@@ -60,6 +60,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rvm'
+  gem 'meta_request'
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
