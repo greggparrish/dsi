@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def index
-    @images = Kaminari.paginate_array(Image.all.order('created_at DESC')).page(params[:page]).per(20)
+    @images = Image.page(params[:page]).per(20)
     respond_to do |format|
       format.html
       format.rss { render layout: false }

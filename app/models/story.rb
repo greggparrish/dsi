@@ -12,6 +12,10 @@
 #  story_text :text
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_stories_on_published  (published)
+#
 
 class Story < ApplicationRecord
   mount_uploader :image, ImagesUploader

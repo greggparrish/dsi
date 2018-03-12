@@ -22,7 +22,7 @@
       = render 'shared/admin_tools'
     = render 'shared/footer'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  = javascript_include_tag 'admin', Ckeditor.cdn_url
+  = javascript_include_tag Ckeditor.cdn_url
   = yield(:extra_js)
   %script{:crossorigin => "anonymous", :integrity => "sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", 'data-turbolinks-eval': false, :src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"}
 

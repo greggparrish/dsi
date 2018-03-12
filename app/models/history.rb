@@ -19,6 +19,7 @@
 #
 # Indexes
 #
+#  index_histories_on_date      (date)
 #  index_histories_on_image_id  (image_id)
 #  index_histories_on_slug      (slug) UNIQUE
 #

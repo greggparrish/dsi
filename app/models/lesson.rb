@@ -17,7 +17,9 @@
 #
 # Indexes
 #
-#  index_lessons_on_image_id  (image_id)
+#  index_lessons_on_created_at  (created_at)
+#  index_lessons_on_image_id    (image_id)
+#  index_lessons_on_title       (title)
 #
 # Foreign Keys
 #

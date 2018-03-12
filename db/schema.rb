@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115124838) do
+ActiveRecord::Schema.define(version: 20180312130417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20171115124838) do
     t.boolean  "exclude_from_timeline", default: false
     t.integer  "image_id"
     t.string   "address"
+    t.index ["date"], name: "index_histories_on_date", using: :btree
     t.index ["image_id"], name: "index_histories_on_image_id", using: :btree
     t.index ["slug"], name: "index_histories_on_slug", unique: true, using: :btree
   end
@@ -128,7 +129,9 @@ ActiveRecord::Schema.define(version: 20171115124838) do
     t.datetime "updated_at",   null: false
     t.string   "slug"
     t.integer  "image_id"
+    t.index ["created_at"], name: "index_lessons_on_created_at", using: :btree
     t.index ["image_id"], name: "index_lessons_on_image_id", using: :btree
+    t.index ["title"], name: "index_lessons_on_title", using: :btree
   end
 
   create_table "news_items", force: :cascade do |t|
@@ -152,6 +155,7 @@ ActiveRecord::Schema.define(version: 20171115124838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "published"
+    t.index ["published"], name: "index_stories_on_published", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
